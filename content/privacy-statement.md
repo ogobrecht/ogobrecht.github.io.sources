@@ -1,6 +1,5 @@
 ---
 title: Privacy Statement
-description: About the author
 menu:
   legal:
     weight: 20

@@ -1,6 +1,5 @@
 ---
 title: About
-description: About the author
 menu:
   main:
     weight: 60

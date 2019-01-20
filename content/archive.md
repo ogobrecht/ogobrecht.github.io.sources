@@ -1,6 +1,6 @@
 ---
 title: Post Archive
-description: About the author
+description: A list of all available posts and tags
 menu:
   main:
     weight: 50
