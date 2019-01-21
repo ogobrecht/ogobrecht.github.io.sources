@@ -4,7 +4,7 @@ description: Convert inline SVGs to standalone image files without loosing style
 tags: [project, jquery, plugin, svg]
 lang: en
 publishdate: 2017-04-03
-lastmod: 2018-12-02 20:00:00
+lastmod: 2019-01-21 16:16:00
 ---
 
 SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?
@@ -71,10 +71,11 @@ Download
 <script src="/assets/d3.js/d3-force-3.0.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="/assets/svg2img/svg2img.min.js"></script>
+
 <script>
 window.onload = function() {
     window.example = netGobrechtsD3Force('example-graph')
-        .width(600)
+        .width(800)
         .height(400)
         .useDomParentWidth(true) //for responsive layout
         //.zoomMode(true)

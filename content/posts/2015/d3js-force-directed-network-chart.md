@@ -61,8 +61,8 @@ Ottmar
 <script>
 window.onload = function() {
     window.example = netGobrechtsD3Force('example')
-        .height(400)
         .width(800)
+        .height(400)
         .useDomParentWidth(true) //for responsive layout
         //.zoomMode(true)
         .lassoMode(true)
