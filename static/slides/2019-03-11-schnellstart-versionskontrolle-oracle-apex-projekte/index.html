@@ -62,6 +62,7 @@
     controls: true,
     fragments: true,
     history: true,
+    transition: "fade",
     dependencies: [
       { src: '/assets/reveal.js/plugin/markdown/marked.js' },
       { src: '/assets/reveal.js/plugin/markdown/markdown.js' },
@@ -96,7 +97,10 @@ window.to_svg = function(){
 </script>
 
 <style>
-.text_white_shadow {
+section[data-background-image], 
+section[data-background-image] h1,
+section[data-background-image] h2,
+section[data-background-image] h3 {
   color: white !important; 
   text-shadow: 2px 2px 6px rgba(0,0,0,0.8) !important;
 }

@@ -1,5 +1,7 @@
+<!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.png" -->
+
 # Schnellstart
-## Versionskontrolle für existierende (APEX-)Projekte
+## Versionskontrolle für (APEX-)Projekte
 Ottmar Gobrecht<br>
 DOAG Regionaltreffen<br>
 München, 11. März 2019
@@ -16,11 +18,11 @@ München, 11. März 2019
 ---
 
 ## Inhalt
-- Grundgedanken Repository Struktur
-- Vergleich Existierende Tools
-- Umgang mit DDL Skripten
-- Release-Beschleunigung
-- Beispiele zur Nutzung moderner Tools
+- Repository: Grundgedanken
+- Tools: DDL Export
+- DDL: Umgang mit Skripten
+- Geschwindigkeit: Releases beschleunigen
+- Mehr Tools: Quellcode-Verwaltung, Editor
 - Fazit
 
 ---
@@ -45,43 +47,60 @@ München, 11. März 2019
 
 -----
 
-<!-- .slide: data-background-image="./assets/cristina-gottardi-224975-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/darwin-vegher-638514-unsplash.png" -->
 
-# Grundgedanken Repository Struktur
-<!-- .element: class="text_white_shadow" -->
-
+# Repository
 
 ---
 
 ## Verzeichnisstruktur
 
-![Verzeichnisstruktur](./assets/verzeichnisstruktur.png)<!-- .element: width="100%" -->
+![Verzeichnisstruktur](./assets/verzeichnisstruktur.png)
+<!-- .element: width="100%" -->
 
 ---
 
 ## Kurze Wege (Backend)
 
-![App Backend](./assets/app_backend.png)<!-- .element: width="100%" -->
+![App Backend](./assets/app_backend.png)
+<!-- .element: width="100%" -->
 
 ---
 
 ## Kurze Wege (Frontend)
 
-![App Frontend](./assets/app_frontend.png)<!-- .element: width="100%" -->
+![App Frontend](./assets/app_frontend.png)
+<!-- .element: width="100%" -->
 
 ---
 
 ## Alle Skripte vereint
 
-![Skripte](./assets/scripts.png)<!-- .element: width="100%" -->
+![Skripte](./assets/scripts.png)
+<!-- .element: width="100%" -->
 
 ---
 
-## SVN versus Git
+## Git versus SVN
+
+- Git ist schneller
+- SVN braucht weniger Platz
+- Git funktioniert offline
+- SVN Rechteverwaltung is flexibler
+- ...
+- [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
+
+---
+
+<!-- .slide: data-background-image="./assets/camylla-battani-784361-unsplash.png" -->
+
+## Fragen?
 
 -----
 
-# Vergleich Existierende Tools
+<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.png" -->
+
+# Tools
 
 ---
 
@@ -99,9 +118,21 @@ München, 11. März 2019
 
 ## Package PLEX
 
+---
+
+<!-- .slide: data-background-image="./assets/frank-vex-1071763-unsplash.png" -->
+
+## Fragen?
+
 -----
 
-# Umgang mit DDL Skripten
+<!-- .slide: data-background-image="./assets/andrea-cappiello-770323-unsplash.png" -->
+
+# DDL
+
+Anmerkung:
+
+DDL = durch d ie Landschaft - von DEV über INT nach PROD
 
 ---
 
@@ -111,22 +142,37 @@ München, 11. März 2019
 
 ## Änderungen an Tabellen
 
+---
+
+<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.png" -->
+
+## Fragen?
+
 -----
 
-# Release-Beschleunigung
+<!-- .slide: data-background-image="./assets/james-thomas-125093-unsplash.png" -->
+
+# Geschwindigkeit
 
 ---
 
-## Einzelnes Releasescript
+## Nur Shell Scripte
 
 ---
 
 ## Startpunkt für CI/CD
 
+---
+
+<!-- .slide: data-background-image="./assets/evan-dennis-75563-unsplash.png" -->
+
+## Fragen?
 
 -----
 
-# Beispiele zur Nutzung moderner Tools
+<!-- .slide: data-background-image="./assets/ricky-kharawala-308072-unsplash.png" -->
+
+# Mehr Tools
 
 ---
 
@@ -138,21 +184,54 @@ München, 11. März 2019
 
 ---
 
+## Demo
+
+---
+
 ## Visual Studio Code
 - Projektweites Suchen und Ersetzen
 - Parameter und Multi-Cursor
 - Integriertes Terminal
 
+---
+
+## Demo
+
+---
+
+<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.png" -->
+
+## Fragen?
+
 -----
+
+<!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.png" -->
 
 # Fazit
 
 ---
 
-## fixme
-- xxx
-- yyy
-- zzz
+- Übersichtliches Repository
+- Dateibasiertes Arbeiten
+- Immer Skripte
+- Wiederanlauffähigkeit
+- Next Step: CI/CD
+
+---
+
+<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.png" -->
+
+# The End
+
+## Fragen?
+
+[ogobrecht.github.io][43]
+
+[43]: https://ogobrecht.github.io
+
+-----
+
+# Anhang
 
 ---
 
@@ -160,13 +239,3 @@ München, 11. März 2019
 - xxx
 - yyy
 - zzz
-
----
-
-## The End
-
-### Fragen?
-
-[ogobrecht.github.io][43]
-
-[43]: https://ogobrecht.github.io
