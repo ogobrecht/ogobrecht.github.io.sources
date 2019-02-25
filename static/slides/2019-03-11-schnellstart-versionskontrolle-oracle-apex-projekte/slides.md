@@ -17,6 +17,14 @@ München, 11. März 2019
 
 ---
 
+## Zu Eurer Person
+- Wer nutzt Versionskontrolle?
+- Wer nutzt Git? SVN? Etwas anderes?
+- Wer verskriptet seine Releases?
+- Wer nutzt CI/CD?
+
+---
+
 ## Inhalt
 - Repository: Grundgedanken
 - Tools: DDL Export
@@ -89,6 +97,7 @@ München, 11. März 2019
 - SVN Rechteverwaltung is flexibler
 - ...
 - [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
+- Tip Windows Server: [Git](https://gitea.io/), [SVN](https://www.visualsvn.com/server/)
 
 ---
 
@@ -229,13 +238,3 @@ DDL = durch d ie Landschaft - von DEV über INT nach PROD
 
 [43]: https://ogobrecht.github.io
 
------
-
-# Anhang
-
----
-
-## Links
-- xxx
-- yyy
-- zzz
