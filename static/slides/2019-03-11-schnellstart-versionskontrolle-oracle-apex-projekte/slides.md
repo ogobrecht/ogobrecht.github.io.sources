@@ -1,4 +1,4 @@
-<!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.jpg" -->
 
 # Schnellstart
 ## Versionskontrolle für (APEX-)Projekte
@@ -53,9 +53,17 @@ München, 11. März 2019
 - Script Templates
 - Übersichtliche Dateistruktur
 
+---
+
+<!-- .slide: data-background-image="./assets/raphael-schaller-88040-unsplash.jpg" -->
+
+> “There is no clean (database) development without Version Control”
+>
+> [Blog Post von Samuel Nitsche](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/)
+
 -----
 
-<!-- .slide: data-background-image="./assets/darwin-vegher-638514-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/darwin-vegher-638514-unsplash.jpg" -->
 
 # Repository
 
@@ -100,13 +108,13 @@ München, 11. März 2019
 
 ---
 
-<!-- .slide: data-background-image="./assets/camylla-battani-784361-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/camylla-battani-784361-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.jpg" -->
 
 # Tools
 
@@ -148,40 +156,34 @@ München, 11. März 2019
 ---
 
 ## Anmerkungen Toad 
-- Kennt zwei Exportmöglichkeiten<br>
-  (mindestens)
-- Entweder Unterverzeichnisse pro Objekttyp<br>
-  oder Daten (je nach gewähltem Export)
+- Kennt zwei Exportmöglichkeiten (mindestens)
+- Entweder Unterverzeichnisse pro Objekttyp oder Daten (je nach gewähltem Export)
 - Kann nur Insert Statements exportieren
-- Sehr umfangreich konfigurierbar,<br>
-  aber unübersichtlich
+- Sehr umfangreich konfigurierbar, aber unübersichtlich
 
 ---
 
 ## Anmerkungen SQL Developer
 - Ist am übersichtlichsten
-- Viele Formate für Datenexport<br>
-  (auch CSV)
+- Viele Formate für Datenexport (auch CSV)
 - Umfangreich konfigurierbar
+- Blain Carter: [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
 
 ---
 
 ## Anmerkungen PL/SQL Developer
 - Wenig konfigurierbar
-- Enttäuscht beim DDL Export bezüglich<br>
-  Aufbau eines Quellcode-Repos
+- Enttäuscht bezüglich Aufbau eines Quellcode-Repos
 
 ---
 
 ## Anmerkungen PLEX
-- Wenig konfigurierbar bezüglich<br>
-  DDL Optionen
-- Überzeugt beim Aufbau eines<br>
-  Quellcode Repos<br>
-  (wurde dafür entwickelt)
-- Kann nur CSV Daten exportieren<br>
-  (by design)
+- Wenig konfigurierbar bezüglich DDL Optionen
+- Überzeugt beim Aufbau eines Quellcode Repos (wurde dafür entwickelt)
+- Kann nur CSV Daten exportieren (by design)
 - Liefert auch Script-Templates
+- Output Verzeichnisstruktur kann angepasst werden
+- Benötigt APEX 5.1.4 oder höher
 
 ---
 
@@ -209,6 +211,8 @@ FROM
   dual;
 ```
 
+Siehe auch [diesen Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/)
+
 Anmerkung:
 
 - Zip file nur beim allerersten Schritt sinnvoll/notwendig
@@ -229,13 +233,13 @@ Anmerkung:
 
 ---
 
-<!-- .slide: data-background-image="./assets/frank-vex-1071763-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/frank-vex-1071763-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/andrea-cappiello-770323-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/andrea-cappiello-770323-unsplash.jpg" -->
 
 # DDL
 
@@ -253,13 +257,13 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/james-thomas-125093-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/james-thomas-125093-unsplash.jpg" -->
 
 # Geschwindigkeit
 
@@ -273,13 +277,13 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/evan-dennis-75563-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/evan-dennis-75563-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/ricky-kharawala-308072-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/ricky-kharawala-308072-unsplash.jpg" -->
 
 # Mehr Tools
 
@@ -308,13 +312,13 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.jpg" -->
 
 # Fazit
 
@@ -328,15 +332,13 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.png" -->
+<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.jpg" -->
 
 # The End
 
 ## Fragen?
 
-[ogobrecht.github.io][og]
+[ogobrecht.github.io](https://ogobrecht.github.io)
 
-[Hintergründe von unsplash.com][unsplash]
+[Hintergründe von unsplash.com](https://unsplash.com/collections/4373998/quickstart-version-control-for-oracle-apex-projects)
 
-[og]: https://ogobrecht.github.io
-[unsplash]: https://unsplash.com/collections/4373998/quickstart-version-control-for-oracle-apex-projects
