@@ -20,7 +20,7 @@ München, 11. März 2019
 ## Zu Eurer Person
 - Wer nutzt Versionskontrolle?
 - Wer nutzt Git? SVN? Etwas anderes?
-- Wer verskriptet seine Releases?
+- Wer verScriptet seine Releases?
 - Wer nutzt CI/CD?
 
 ---
@@ -28,7 +28,7 @@ München, 11. März 2019
 ## Inhalt
 - Repository: Grundgedanken
 - Tools: DDL Export
-- DDL: Umgang mit Skripten
+- DDL: Umgang mit Scripten
 - Geschwindigkeit: Releases beschleunigen
 - Mehr Tools: Quellcode-Verwaltung, Editor
 - Fazit
@@ -82,21 +82,20 @@ München, 11. März 2019
 
 ---
 
-## Alle Skripte vereint
+## Alle Scripte vereint
 
-![Skripte](./assets/scripts.png)
+![Scripte](./assets/scripts.png)
 <!-- .element: width="100%" -->
 
 ---
 
 ## Git versus SVN
-
 - Git ist schneller
 - SVN braucht weniger Platz
 - Git funktioniert offline
 - SVN Rechteverwaltung is flexibler
-- ...
-- [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
+- ... ein echter Grabenkampf
+- Beruhigungsmittel: [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
 - Tip Windows Server: [Git](https://gitea.io/), [SVN](https://www.visualsvn.com/server/)
 
 ---
@@ -113,19 +112,120 @@ München, 11. März 2019
 
 ---
 
-## PL/SQL Developer
+## Tool-Vergleich DDL Export
+- Wie ruft man die Funktionalität auf?
+- Eine Script-Datei pro Objekt möglich?
+- Unterverzeichnisse pro Objekttyp möglich?
+- Eigene Dateien für FK Constraints?
+- "Object already exist" verhinderbar?
+- Können Daten exportiert werden?
+- Kann eine APEX App exportiert werden?
 
 ---
 
-## SQL Developer
+## Export Schema DDL
+
+| Tool             | Aufruf                                     |
+|------------------|--------------------------------------------|
+| Package PLEX     | SQL Function `plex.backapp`                |
+| PL/SQL Developer | Tools > Export Schema Objects              |
+| SQL Developer    | Extras > Datenbankexport                   |
+| Toad             | Database > Export > Generate Schema Script |
 
 ---
 
-## Toad
+## Vergleich Funktionalität
+
+| Kriterium             | PLEX    | PL/SQL<br>Dev. | SQL<br>Dev. | Toad       |
+|-----------------------|---------|----------------|-------------|------------|
+| Datei pro Objekt      | Ja      | Ja             | Ja          | Ja         |
+| Unterverz. pro Typ    | Ja      | Nein           | Ja          | Ja         |
+| FK Constr. extra      | Ja      | Nein           | Ja          | Ja         |
+| Verhi. "object exist" | Ja      | Nein           | Nein        | Nein       |
+| Export Daten          | Ja      | Nein           | Ja          | ***Jein*** |
+| Export APEX App       | Ja      | Nein           | Nein        | Nein       |
 
 ---
 
-## Package PLEX
+## Anmerkungen Toad 
+- Kennt zwei Exportmöglichkeiten<br>
+  (mindestens)
+- Entweder Unterverzeichnisse pro Objekttyp<br>
+  oder Daten (je nach gewähltem Export)
+- Kann nur Insert Statements exportieren
+- Sehr umfangreich konfigurierbar,<br>
+  aber unübersichtlich
+
+---
+
+## Anmerkungen SQL Developer
+- Ist am übersichtlichsten
+- Viele Formate für Datenexport<br>
+  (auch CSV)
+- Umfangreich konfigurierbar
+
+---
+
+## Anmerkungen PL/SQL Developer
+- Wenig konfigurierbar
+- Enttäuscht beim DDL Export bezüglich<br>
+  Aufbau eines Quellcode-Repos
+
+---
+
+## Anmerkungen PLEX
+- Wenig konfigurierbar bezüglich<br>
+  DDL Optionen
+- Überzeugt beim Aufbau eines<br>
+  Quellcode Repos<br>
+  (wurde dafür entwickelt)
+- Kann nur CSV Daten exportieren<br>
+  (by design)
+- Liefert auch Script-Templates
+
+---
+
+## Sample Database Application
+
+![App Frontend](./assets/plex_backapp_1.png)
+
+---
+
+## Package PLEX verwenden
+
+```sql
+WITH
+  FUNCTION backapp RETURN BLOB IS
+  BEGIN
+    RETURN plex.to_zip(plex.backapp(
+      p_app_id               => 100,
+      p_include_object_ddl   => true
+    ));
+  END backapp;
+
+SELECT
+  backapp
+FROM
+  dual;
+```
+
+Anmerkung:
+
+- Zip file nur beim allerersten Schritt sinnvoll/notwendig
+- Später sollte man Scripte benutzen
+- Siehe auch Ordner Zip/scripts/templates
+
+---
+
+## Export als ZIP
+
+![App Frontend](./assets/plex_backapp_2.png)
+
+---
+
+## Downloaded ZIP File
+
+![App Frontend](./assets/plex_backapp_3.png)
 
 ---
 
@@ -141,7 +241,7 @@ München, 11. März 2019
 
 Anmerkung:
 
-DDL = durch d ie Landschaft - von DEV über INT nach PROD
+DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
@@ -222,7 +322,7 @@ DDL = durch d ie Landschaft - von DEV über INT nach PROD
 
 - Übersichtliches Repository
 - Dateibasiertes Arbeiten
-- Immer Skripte
+- Immer Scripte
 - Wiederanlauffähigkeit
 - Next Step: CI/CD
 
@@ -234,7 +334,9 @@ DDL = durch d ie Landschaft - von DEV über INT nach PROD
 
 ## Fragen?
 
-[ogobrecht.github.io][43]
+[ogobrecht.github.io][og]
 
-[43]: https://ogobrecht.github.io
+[Hintergründe von unsplash.com][unsplash]
 
+[og]: https://ogobrecht.github.io
+[unsplash]: https://unsplash.com/collections/4373998/quickstart-version-control-for-oracle-apex-projects
