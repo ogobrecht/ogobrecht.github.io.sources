@@ -1,5 +1,11 @@
 <!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.jpg" -->
 
+# ToDos
+- Screenshot Export als ZIP mit aktuellem Code
+- Screenshots Repo VS Code aktualisieren
+
+---
+
 # Schnellstart
 ## Versionskontrolle für (APEX-)Projekte
 Ottmar Gobrecht<br>
@@ -33,6 +39,8 @@ München, 11. März 2019
 - Mehr Tools: Quellcode-Verwaltung, Editor
 - Fazit
 
+ACHTUNG: Denglish ist unvermeidbar ;-)
+
 ---
 
 ## Motivation
@@ -55,11 +63,11 @@ München, 11. März 2019
 
 ---
 
-<!-- .slide: data-background-image="./assets/raphael-schaller-88040-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/michael-d-beckwith-575798-unsplash.jpg" -->
 
 > “There is no clean (database) development without Version Control”
 >
-> [Blog Post von Samuel Nitsche](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/)
+> Samuel Nitsche ([Blog Post](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/))
 
 -----
 
@@ -181,37 +189,48 @@ München, 11. März 2019
 - Wenig konfigurierbar bezüglich DDL Optionen
 - Überzeugt beim Aufbau eines Quellcode Repos (wurde dafür entwickelt)
 - Kann nur CSV Daten exportieren (by design)
-- Liefert auch Script-Templates
-- Output Verzeichnisstruktur kann angepasst werden
+- Liefert auch Script-Templates für Release
+- Ausgabeverzeichnisstruktur (file collection) kann angepasst werden ([siehe Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/#next-steps))
 - Benötigt APEX 5.1.4 oder höher
 
 ---
 
-## Sample Database Application
+<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
+
+## Fragen?
+
+-----
+
+<!-- .slide: data-background-image="./assets/tim-easley-326493-unsplash.jpg" -->
+
+# PLEX
+
+---
+
+## Ausgangsbasis: Sample DB App
 
 ![App Frontend](./assets/plex_backapp_1.png)
 
 ---
 
-## Package PLEX verwenden
+## Möglicher Erstexport
 
 ```sql
 WITH
   FUNCTION backapp RETURN BLOB IS
   BEGIN
     RETURN plex.to_zip(plex.backapp(
-      p_app_id               => 100,
-      p_include_object_ddl   => true
+      p_app_id             => 100,   -- If null, we simply skip the APEX app export.
+      p_include_object_ddl => true,  -- If true, include DDL of current user/schema and all its objects.
+      p_include_data       => false, -- If true, include CSV data of each table.
+      p_include_templates  => true,  -- If true, include templates for README.md, export and install scripts.
     ));
   END backapp;
 
-SELECT
-  backapp
-FROM
-  dual;
+SELECT backapp FROM dual;
 ```
 
-Siehe auch [diesen Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/)
+[Siehe auch diesen Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/)
 
 Anmerkung:
 
@@ -221,19 +240,43 @@ Anmerkung:
 
 ---
 
-## Export als ZIP
+## Speichern als ZIP
 
 ![App Frontend](./assets/plex_backapp_2.png)
 
 ---
 
-## Downloaded ZIP File
+## Das Ergebnis
 
 ![App Frontend](./assets/plex_backapp_3.png)
+<!-- .element: width="100%" -->
 
 ---
 
-<!-- .slide: data-background-image="./assets/frank-vex-1071763-unsplash.jpg" -->
+## Anpassen Verzeichnisstruktur
+
+```sql
+DECLARE
+  l_files apex_t_export_files;
+BEGIN
+  l_files := plex.backapp(p_app_id => 100);
+  FOR i IN 1..l_files.count LOOP
+    -- relocate APEX app files from app_frontend to app_ui
+    IF l_files(i).name LIKE 'app_frontend/%' THEN
+      l_files(i).name := replace(l_files(i).name, 'app_frontend/', 'app_ui/');
+      l_files(i).contents := replace(l_files(i).contents, 'prompt --app_frontend/', 'prompt --app_ui/');
+    END IF;
+    -- correct file links in install script
+    IF l_files(i).name = 'scripts/install_frontend_generated_by_apex.sql' THEN
+      l_files(i).contents := replace(l_files(i).contents, '@../app_frontend/', '@../app_ui/');
+    END IF;
+  END LOOP;
+END;
+```
+
+---
+
+<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.jpg" -->
 
 ## Fragen?
 
@@ -257,7 +300,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/kawtar-cherkaoui-125346-unsplash.jpg" -->
 
 ## Fragen?
 
@@ -277,7 +320,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/evan-dennis-75563-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/wayne-bishop-5737-unsplash.jpg" -->
 
 ## Fragen?
 
@@ -312,7 +355,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/evan-dennis-75563-unsplash.jpg" -->
 
 ## Fragen?
 

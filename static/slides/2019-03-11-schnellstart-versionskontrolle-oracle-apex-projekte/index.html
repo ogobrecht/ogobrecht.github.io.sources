@@ -99,14 +99,17 @@ window.to_svg = function(){
 </script>
 
 <style>
-section[data-background-image], 
-section[data-background-image] h1,
-section[data-background-image] h2,
-section[data-background-image] h3 {
-  color: white !important; 
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.8) !important;
+.reveal section[data-background-image], 
+.reveal section[data-background-image] h1,
+.reveal section[data-background-image] h2,
+.reveal section[data-background-image] h3 {
+  color: white; 
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
 }
-.reveal blockquote {
+.reveal section[data-background-image] a:hover {
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+.reveal section[data-background-image] blockquote {
   background: none;
   box-shadow: none;
 }
