@@ -4,7 +4,7 @@ description: Export Oracle APEX app, all schema objects and table data in one go
 tags: [project, oracle, apex, plsql, version-control]
 lang: en
 publishdate: 2018-08-26
-lastmod: 2019-01-11 20:01:00
+lastmod: 2019-03-01 20:01:00
 ---
 
 PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:
@@ -140,6 +140,7 @@ BEGIN
     -- correct file links in install script
     IF l_files(i).name = 'scripts/install_frontend_generated_by_apex.sql' THEN
       l_files(i).contents := replace(l_files(i).contents, '@../app_frontend/', '@../app_ui/');
+    END IF;
   END LOOP;
 
   -- more alignments...
