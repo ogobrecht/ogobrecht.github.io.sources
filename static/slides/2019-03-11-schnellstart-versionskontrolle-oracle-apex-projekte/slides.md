@@ -3,6 +3,7 @@
 # ToDos
 - Screenshot Export als ZIP mit aktuellem Code
 - Screenshots Repo VS Code aktualisieren
+- Kann SQL Developer ein APEX App exportieren?
 
 ---
 
@@ -34,6 +35,7 @@ München, 11. März 2019
 ## Inhalt
 - Repository: Grundgedanken
 - Tools: DDL Export
+- PLEX: Benutzung
 - DDL: Umgang mit Scripten
 - Geschwindigkeit: Releases beschleunigen
 - Mehr Tools: Quellcode-Verwaltung, Editor
@@ -56,8 +58,9 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 ## Die Idee
 ### Download all in one
 - Frontend (APEX App)
-- Backend
-- REST Services (in Planung)
+- Backend (DB Objekte, Businesslogik)
+- Katalogdaten
+- REST Services (in Planung, ORDS)
 - Script Templates
 - Übersichtliche Dateistruktur
 
@@ -159,7 +162,7 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 | FK Constr. extra      | Ja      | Nein           | Ja          | Ja         |
 | Verhi. "object exist" | Ja      | Nein           | Nein        | Nein       |
 | Export Daten          | Ja      | Nein           | Ja          | ***Jein*** |
-| Export APEX App       | Ja      | Nein           | Nein        | Nein       |
+| Export APEX App       | Ja      | Nein           | ***Jein***  | Nein       |
 
 ---
 
@@ -186,11 +189,11 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 ---
 
 ## Anmerkungen PLEX
-- Wenig konfigurierbar bezüglich DDL Optionen
-- Überzeugt beim Aufbau eines Quellcode Repos (wurde dafür entwickelt)
+- Wenig konfigurierbare DDL Optionen
+- Überzeugt für Quellcode Repo (wurde dafür entwickelt)
 - Kann nur CSV Daten exportieren (by design)
-- Liefert auch Script-Templates für Release
-- Ausgabeverzeichnisstruktur (file collection) kann angepasst werden ([siehe Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/#next-steps))
+- Liefert Script-Templates für Release
+- Ausgabeverzeichnisstruktur (file collection) anpassbar ([siehe Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/#next-steps))
 - Benötigt APEX 5.1.4 oder höher
 
 ---
@@ -364,9 +367,6 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 <!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.jpg" -->
 
 # Fazit
-
----
-
 - Übersichtliches Repository
 - Dateibasiertes Arbeiten
 - Immer Scripte
