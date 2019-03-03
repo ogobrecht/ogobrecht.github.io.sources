@@ -60,7 +60,6 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 - Frontend (APEX App)
 - Backend (DB Objekte, Businesslogik)
 - Katalogdaten
-- REST Services (in Planung, ORDS)
 - Script Templates
 - Übersichtliche Dateistruktur
 
@@ -198,7 +197,7 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 
 ---
 
-<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/jorgen-haland-786179-unsplash.jpg" -->
 
 ## Fragen?
 
@@ -358,7 +357,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-<!-- .slide: data-background-image="./assets/evan-dennis-75563-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
 
 ## Fragen?
 
