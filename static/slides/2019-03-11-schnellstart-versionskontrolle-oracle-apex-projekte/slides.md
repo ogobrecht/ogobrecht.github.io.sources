@@ -1,11 +1,5 @@
 <!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.jpg" -->
 
-# ToDos
-- Screenshots Repo VS Code aktualisieren
-- Kann SQL Developer ein APEX App exportieren?
-
----
-
 # Schnellstart
 ## Versionskontrolle für (APEX-)Projekte
 Ottmar Gobrecht<br>
@@ -26,7 +20,7 @@ München, 11. März 2019
 ## Zu Eurer Person
 - Wer nutzt Versionskontrolle?
 - Wer nutzt Git? SVN? Etwas anderes?
-- Wer verScriptet seine Releases?
+- Wer verscriptet seine Releases?
 - Wer nutzt CI/CD?
 
 ---
@@ -193,7 +187,7 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 - Überzeugt für Quellcode Repo (wurde dafür entwickelt)
 - Kann nur CSV Daten exportieren (by design)
 - Liefert Script-Templates für Release
-- Ausgabeverzeichnisstruktur (file collection) anpassbar ([siehe Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/#next-steps))
+- Ausgabeverzeichnisstruktur anpassbar
 - Benötigt APEX 5.1.4 oder höher
 
 ---
@@ -254,7 +248,7 @@ WITH
 SELECT backapp FROM dual;
 ```
 
-[Siehe auch diesen Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/)
+[Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/)
 
 Anmerkung:
 
