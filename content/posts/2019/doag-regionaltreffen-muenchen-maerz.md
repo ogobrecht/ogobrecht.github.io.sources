@@ -10,6 +10,7 @@ Die Folien zu meinem Vortrag:
 
 {{< slides "/slides/2019-03-11-schnellstart-versionskontrolle-oracle-apex-projekte/" >}}
 
-Weitere Infos zu dem im Vortrag vorgestellten Projekt [PLEX][1].
+Siehe auch das Projekt [PLEX auf GitHub][plex] und diesen [Blog Post][post] für mehr Infos. 
 
-[1]: https://github.com/ogobrecht/plex
+[plex]: https://github.com/ogobrecht/plex
+[post]: https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/

@@ -1,7 +1,6 @@
 <!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.jpg" -->
 
 # ToDos
-- Screenshot Export als ZIP mit aktuellem Code
 - Screenshots Repo VS Code aktualisieren
 - Kann SQL Developer ein APEX App exportieren?
 
@@ -81,29 +80,31 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 
 ## Verzeichnisstruktur
 
-![Verzeichnisstruktur](./assets/verzeichnisstruktur.png)
-<!-- .element: width="100%" -->
+![Verzeichnisstruktur](./assets/repo_verzeichnisstruktur.png)
 
 ---
 
 ## Kurze Wege (Backend)
 
 ![App Backend](./assets/app_backend.png)
-<!-- .element: width="100%" -->
 
 ---
 
 ## Kurze Wege (Frontend)
 
 ![App Frontend](./assets/app_frontend.png)
-<!-- .element: width="100%" -->
 
 ---
 
 ## Alle Scripte vereint
 
 ![Scripte](./assets/scripts.png)
-<!-- .element: width="100%" -->
+
+---
+
+## Tracking von Katalogdaten
+
+![Scripte](./assets/app_data.png)
 
 ---
 
@@ -213,6 +214,25 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 
 ![App Frontend](./assets/plex_backapp_1.png)
 
+
+---
+
+## PLEX.BackApp Rückgabeformat
+
+```sql
+-- PUBLIC APEX TYPES
+
+-- apex_t_export_file
+TYPE wwv_flow_t_export_file IS OBJECT (
+  name     VARCHAR2(255),
+  contents CLOB
+)
+
+-- apex_t_export_files
+TYPE wwv_flow_t_export_files IS
+  TABLE OF wwv_flow_t_export_file
+```
+
 ---
 
 ## Möglicher Erstexport
@@ -222,10 +242,12 @@ WITH
   FUNCTION backapp RETURN BLOB IS
   BEGIN
     RETURN plex.to_zip(plex.backapp(
-      p_app_id             => 100,   -- If null, we simply skip the APEX app export.
-      p_include_object_ddl => true,  -- If true, include DDL of current user/schema and all its objects.
-      p_include_data       => false, -- If true, include CSV data of each table.
-      p_include_templates  => true,  -- If true, include templates for README.md, export and install scripts.
+      p_app_id               => 100,  -- If null, we simply skip the APEX app export.
+      p_include_object_ddl   => true, -- If true, include DDL of current user/schema and all its objects.
+      p_include_templates    => true, -- If true, include templates for README.md, export and install scripts.
+      p_include_runtime_log  => true, -- If true, generate file plex_backapp_log.md with runtime statistics.
+      p_include_data         => true, -- If true, include CSV data of each table.
+      p_data_table_name_like => 'DEMO_PRODUCT_INFO,DEMO_STATES' -- A comma separated list of like expressions to filter the tables - example: 'EMP%,DEPT%' will be translated to: where ... and (table_name like 'EMP%' escape '\' or table_name like 'DEPT%' escape '\').  
     ));
   END backapp;
 
@@ -248,10 +270,15 @@ Anmerkung:
 
 ---
 
-## Das Ergebnis
+## Das entpackte ZIP File
 
 ![App Frontend](./assets/plex_backapp_3.png)
-<!-- .element: width="100%" -->
+
+---
+
+## Zur Erinnerung: Unser Ziel
+
+![App Frontend](./assets/scripts.png)
 
 ---
 
@@ -296,9 +323,34 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ## Wiederanlauffähigkeit
 
+![App Backend](./assets/app_backend.png)
+
 ---
 
-## Änderungen an Tabellen
+## Das Problem
+### Tabellenänderungen
+- Erneuter DDL Export
+- Alter-Statements weg
+- Was nun?
+
+---
+
+## Die Lösung
+### Kopie Create Script
+- Beispiel: DEMO_STATES.dev.sql
+- Einhängen in custom install script
+
+---
+
+## Beispiel: Create Script
+
+![App Backend](./assets/alter_table_1.png)
+
+---
+
+## Beispiel: Custom Install Script
+
+![App Backend](./assets/alter_table_2.png)
 
 ---
 
@@ -315,10 +367,14 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 ---
 
 ## Nur Shell Scripte
+- Kein manueller App Export
+- Kein manueller App Import
+- Alle Scripte Wiederanlauffähig
+- Mehrarbeit, die sich auszahlt
 
 ---
 
-## Startpunkt für CI/CD
+## Demo App Installation
 
 ---
 
