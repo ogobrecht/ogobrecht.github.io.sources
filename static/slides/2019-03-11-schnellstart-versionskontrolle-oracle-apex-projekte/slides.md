@@ -250,7 +250,7 @@ SELECT backapp FROM dual;
 
 [Blog Post](https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/)
 
-Anmerkung:
+Anmerkungen:
 
 - Zip file nur beim allerersten Schritt sinnvoll/notwendig
 - Später sollte man Scripte benutzen
@@ -296,6 +296,20 @@ BEGIN
   END LOOP;
 END;
 ```
+
+---
+
+## Skripte anpassen bei Verwendung
+
+![App Frontend](./assets/scripts_custom.png)
+
+---
+
+## SYS-Objekte
+
+- Bei Export exkludieren oder umbenennen
+- Einiges versucht PLEX schon richtig zu machen
+- Ziel: Keine SYS-Objekte im Repository
 
 ---
 
@@ -361,14 +375,13 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 ---
 
 ## Nur Shell Scripte
-- Kein manueller App Export
-- Kein manueller App Import
+- Kein manueller App Export/Import
 - Alle Scripte Wiederanlauffähig
 - Mehrarbeit, die sich auszahlt
 
 ---
 
-## Demo App Installation
+## Demo App Export/Import
 
 ---
 
@@ -385,10 +398,13 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 ---
 
 ## GitHub Desktop
-- Multi-Dateivergleich
+- Multi-Platform (Linux WiP)
+- Reduziert auf das Wesentliche
 - Easy Undo
+- Multi-Dateivergleich
 - Branching and Merging
-- Weiterführende Infos
+- ...
+- [Homepage](https://desktop.github.com/)
 
 ---
 
@@ -397,9 +413,14 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 ---
 
 ## Visual Studio Code
+- Multi-Platform
+- Git integriert
 - Projektweites Suchen und Ersetzen
-- Parameter und Multi-Cursor
 - Integriertes Terminal
+- Multi-Cursor
+- PL/SQL Unterstützung
+- ...
+- [Homepage](https://code.visualstudio.com/)
 
 ---
 
