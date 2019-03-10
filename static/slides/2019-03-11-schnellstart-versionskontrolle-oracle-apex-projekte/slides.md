@@ -29,7 +29,6 @@ München, 11. März 2019
 - Toolvergleich: Export Schema DDL
 - Scripte & Wiederanlauffähigkeit
 - Mehr Tools: Quellcode-Verwaltung, Editor
-- Fazit
 
 ---
 
@@ -161,10 +160,10 @@ Anmerkungen:
 - Git ist schneller
 - SVN braucht weniger Platz
 - Git funktioniert offline
-- SVN Rechteverwaltung is flexibler
+- SVN Rechteverwaltung ist flexibler
 - ... ein echter Grabenkampf
 - Beruhigungsmittel: [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
-- Tip Windows Server: [Git](https://gitea.io/), [SVN](https://www.visualsvn.com/server/)
+- Tipp Windows Server: [Git](https://gitea.io/), [SVN](https://www.visualsvn.com/server/)
 
 ---
 
@@ -233,6 +232,20 @@ Anmerkungen:
 
 ---
 
+## Skripte anpassen bei Verwendung
+
+![App Frontend](./assets/scripts_custom.png)
+
+---
+
+## SYS-Objekte
+
+- Bei Export exkludieren oder umbenennen
+- Einiges versucht PLEX schon richtig zu machen
+- Ziel: Keine SYS-Objekte im Repository
+
+---
+
 ## Anpassen Verzeichnisstruktur
 
 ```sql
@@ -256,38 +269,6 @@ END;
 
 ---
 
-## PLEX.BackApp Rückgabeformat
-
-```sql
--- PUBLIC APEX TYPES
-
--- apex_t_export_file
-TYPE wwv_flow_t_export_file IS OBJECT (
-  name     VARCHAR2(255),
-  contents CLOB
-)
-
--- apex_t_export_files
-TYPE wwv_flow_t_export_files IS
-  TABLE OF wwv_flow_t_export_file
-```
-
----
-
-## Skripte anpassen bei Verwendung
-
-![App Frontend](./assets/scripts_custom.png)
-
----
-
-## SYS-Objekte
-
-- Bei Export exkludieren oder umbenennen
-- Einiges versucht PLEX schon richtig zu machen
-- Ziel: Keine SYS-Objekte im Repository
-
----
-
 <!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.jpg" -->
 
 ## Fragen?
@@ -297,10 +278,18 @@ TYPE wwv_flow_t_export_files IS
 <!-- .slide: data-background-image="./assets/andrea-cappiello-770323-unsplash.jpg" -->
 
 # DDL
+## <span style="color:red;">D</span>urch <span style="color:red;">d</span>ie <span style="color:red;">L</span>andschaft ;-)
+<!-- .element: class="fragment"-->
 
-Anmerkung:
+Von DEV über INT nach PROD
+<!-- .element: class="fragment"-->
 
-DDL = durch die Landschaft - von DEV über INT nach PROD
+---
+
+## Ab hier dateibasiertes Arbeiten
+- Keine Änderungen über Klickibunti-Tools
+- Alle Änderungen per Script
+- Nur noch APEX-Frontend exportieren
 
 ---
 
@@ -310,30 +299,16 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ---
 
-## Das Problem
-### Tabellenänderungen
-- Erneuter DDL Export
-- Alter-Statements weg
-- Was nun?
+## Die Idee dahinter
 
----
+Agile DB-Entwicklung
 
-## Die Lösung
-### Kopie Create Script
-- Beispiel: DEMO_STATES.dev.sql
-- Einhängen in custom install script
+Jede Änderung ist eine Migration
 
----
+- [Artikel Samuel Nitsche](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
+- [Artikel Martin Fowler](https://www.martinfowler.com/articles/evodb.html)
 
-## Beispiel: Create Script
-
-![App Backend](./assets/alter_table_1.png)
-
----
-
-## Beispiel: Custom Install Script
-
-![App Backend](./assets/alter_table_2.png)
+Unser Ansatz ist nur eine mögliche<br>Ausprägung der Idee
 
 ---
 
@@ -351,7 +326,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 
 ## Nur Shell Scripte
 - Kein manueller App Export/Import
-- Alle Scripte Wiederanlauffähig
+- Alle Scripte wiederanlauffähig
 - Mehrarbeit, die sich auszahlt
 
 ---
@@ -373,11 +348,9 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 ---
 
 ## GitHub Desktop
-- Multi-Platform (Linux WiP)
+- Multi-Plattform (Linux in Arbeit)
 - Reduziert auf das Wesentliche
-- Easy Undo
-- Multi-Dateivergleich
-- Branching and Merging
+- Übersichtlich
 - ...
 - [Homepage](https://desktop.github.com/)
 
@@ -388,11 +361,9 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 ---
 
 ## Visual Studio Code
-- Multi-Platform
+- Multi-Plattform
 - Git integriert
-- Projektweites Suchen und Ersetzen
-- Integriertes Terminal
-- Multi-Cursor
+- Terminal Integriert
 - [PL/SQL Unterstützung](https://github.com/zabel-xyz/plsql-language)
 - ...
 - [Homepage](https://code.visualstudio.com/)
@@ -414,7 +385,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 # Fazit
 - Übersichtliches Repository
 - Dateibasiertes Arbeiten
-- Immer Scripte
+- Immer Skripte
 - Wiederanlauffähigkeit
 - Next Step: CI/CD
 

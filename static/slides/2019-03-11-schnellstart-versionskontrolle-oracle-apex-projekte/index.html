@@ -58,10 +58,15 @@
   <script src="/assets/reveal.js/lib/js/head.min.js"></script>
   <script src="/assets/reveal.js/js/reveal.js"></script>
   <script>
+  // do not show controls, when presentation runs over localhost (on a talk)
+  var showControls = (
+    location.hostname === "localhost" || 
+    location.hostname === "127.0.0.1" || 
+    location.hostname === "" ? false : true);
   // https://github.com/hakimel/reveal.js/#configuration
   Reveal.initialize({
-    controls: false,
-    progress: false,
+    controls: showControls,
+    progress: showControls,
     fragments: true,
     history: true,
     transition: "fade",
