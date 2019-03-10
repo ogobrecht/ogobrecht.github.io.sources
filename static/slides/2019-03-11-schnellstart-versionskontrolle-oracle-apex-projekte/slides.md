@@ -11,7 +11,6 @@ München, 11. März 2019
 ## Zu meiner Person
 - Oracle APEX Entwickler seit 2008 (APEX 3.0)
 - Seit 2013 im Headquarter der Linde AG
-- Bereich "Finance Applications and Reporting"
 - Individualsoftware für Fachbereiche
 - Aktiv im [Open Source Bereich](https://github.com/ogobrecht)
 
@@ -26,15 +25,11 @@ München, 11. März 2019
 ---
 
 ## Inhalt
-- Repository: Grundgedanken
-- Tools: DDL Export
-- PLEX: Benutzung
-- DDL: Umgang mit Scripten
-- Geschwindigkeit: Releases beschleunigen
+### Aufbau eines Quellcode-Repos
+- Toolvergleich: Export Schema DDL
+- Scripte & Wiederanlauffähigkeit
 - Mehr Tools: Quellcode-Verwaltung, Editor
 - Fazit
-
-ACHTUNG: Denglish ist unvermeidbar ;-)
 
 ---
 
@@ -48,13 +43,25 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 
 ---
 
-## Die Idee
-### Download all in one
+## Das Ziel: Download all in one
 - Frontend (APEX App)
-- Backend (DB Objekte, Businesslogik)
-- Katalogdaten
+- Backend (Schema DDL)
+- Daten (Katalogdaten)
 - Script Templates
+- Wiederanlauffähigkeit
 - Übersichtliche Dateistruktur
+
+---
+
+## Das Ziel: Verzeichnisstruktur
+
+![Angestrebte Verzeichnisstruktur](./assets/repo_verzeichnisstruktur.png)
+
+Anmerkungen:
+
+- Kurze Wege
+- Alle Scripte vereint
+- Tracking von Katalogdaten
 
 ---
 
@@ -66,39 +73,87 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 
 -----
 
-<!-- .slide: data-background-image="./assets/darwin-vegher-638514-unsplash.jpg" -->
+<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.jpg" -->
 
-# Repository
-
----
-
-## Verzeichnisstruktur
-
-![Verzeichnisstruktur](./assets/repo_verzeichnisstruktur.png)
+# Tools
 
 ---
 
-## Kurze Wege (Backend)
-
-![App Backend](./assets/app_backend.png)
-
----
-
-## Kurze Wege (Frontend)
-
-![App Frontend](./assets/app_frontend.png)
-
----
-
-## Alle Scripte vereint
-
-![Scripte](./assets/scripts.png)
+## Tool-Vergleich DDL Export
+- Aufruf Funktionalität
+- Eine Script-Datei pro Objekt?
+- Unterverzeichnisse pro Objekttyp?
+- Eigene Dateien FK Constraints?
+- "Object already exist" verhinderbar?
+- Daten exportiertbar?
+- APEX App exportiertbar?
 
 ---
 
-## Tracking von Katalogdaten
+## Export Schema DDL
 
-![Scripte](./assets/app_data.png)
+| Tool             | Aufruf                                     |
+|------------------|--------------------------------------------|
+| SQL Developer    | Extras > Datenbankexport                   |
+| PL/SQL Developer | Tools > Export Schema Objects              |
+| Toad             | Database > Export > Generate Schema Script |
+
+---
+
+## Vergleich Funktionalität
+
+| Kriterium             | SQL<br>Dev. | PL/SQL<br>Dev. | Toad       |
+|-----------------------|-------------|----------------|------------|
+| Datei pro Objekt      | Ja          | Ja             | Ja         |
+| Unterverz. pro Typ    | Ja          | Nein           | Ja         |
+| FK Constr. extra      | Ja          | Nein           | Ja         |
+| Verhi. "object exist" | Nein        | Nein           | Nein       |
+| Export Daten          | Ja          | Nein           | ***Jein*** |
+| Export APEX App       | ***Jein***  | Nein           | Nein       |
+
+---
+
+## Vergleich Funktionalität
+
+| Kriterium             | SQL<br>Dev. | PL/SQL<br>Dev. | Toad       | PLEX    |
+|-----------------------|-------------|----------------|------------|---------|
+| Datei pro Objekt      | Ja          | Ja             | Ja         | Ja      |
+| Unterverz. pro Typ    | Ja          | Nein           | Ja         | Ja      |
+| FK Constr. extra      | Ja          | Nein           | Ja         | Ja      |
+| Verhi. "object exist" | Nein        | Nein           | Nein       | Ja      |
+| Export Daten          | Ja          | Nein           | ***Jein*** | Ja      |
+| Export APEX App       | ***Jein***  | Nein           | Nein       | Ja      |
+
+---
+
+## Anmerkungen SQL Developer
+- Ist am übersichtlichsten
+- Viele Formate für Datenexport (auch CSV)
+- Umfangreich konfigurierbar
+- Blain Carter: [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
+
+---
+
+## Anmerkungen PL/SQL Developer
+- Wenig konfigurierbar
+- Enttäuscht für Aufbau Quellcode-Repos
+
+---
+
+## Anmerkungen Toad 
+- Zwei Exportmöglichkeiten (mindestens)
+  - Entweder Unterverzeichnisse pro Objekttyp...
+  - ... oder Daten
+- Daten nur als Insert Statements
+- Umfangreich konfigurierbar, unübersichtlich
+
+---
+
+## Anmerkungen PLEX
+- Ist ein Package (<span style="color:red;">PL</span>/SQL <span style="color:red;">Ex</span>port Utilities)
+- Ausgabeverzeichnisstruktur anpassbar
+- Benötigt APEX 5.1.4 oder höher
+- [Projekt auf GitHub](https://github.com/ogobrecht/plex)
 
 ---
 
@@ -119,85 +174,6 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 
 -----
 
-<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.jpg" -->
-
-# Tools
-
----
-
-## Tool-Vergleich DDL Export
-- Wie ruft man die Funktionalität auf?
-- Eine Script-Datei pro Objekt möglich?
-- Unterverzeichnisse pro Objekttyp möglich?
-- Eigene Dateien für FK Constraints?
-- "Object already exist" verhinderbar?
-- Können Daten exportiert werden?
-- Kann eine APEX App exportiert werden?
-
----
-
-## Export Schema DDL
-
-| Tool             | Aufruf                                     |
-|------------------|--------------------------------------------|
-| Package PLEX     | SQL Function `plex.backapp`                |
-| PL/SQL Developer | Tools > Export Schema Objects              |
-| SQL Developer    | Extras > Datenbankexport                   |
-| Toad             | Database > Export > Generate Schema Script |
-
----
-
-## Vergleich Funktionalität
-
-| Kriterium             | PLEX    | PL/SQL<br>Dev. | SQL<br>Dev. | Toad       |
-|-----------------------|---------|----------------|-------------|------------|
-| Datei pro Objekt      | Ja      | Ja             | Ja          | Ja         |
-| Unterverz. pro Typ    | Ja      | Nein           | Ja          | Ja         |
-| FK Constr. extra      | Ja      | Nein           | Ja          | Ja         |
-| Verhi. "object exist" | Ja      | Nein           | Nein        | Nein       |
-| Export Daten          | Ja      | Nein           | Ja          | ***Jein*** |
-| Export APEX App       | Ja      | Nein           | ***Jein***  | Nein       |
-
----
-
-## Anmerkungen Toad 
-- Kennt zwei Exportmöglichkeiten (mindestens)
-- Entweder Unterverzeichnisse pro Objekttyp oder Daten (je nach gewähltem Export)
-- Kann nur Insert Statements exportieren
-- Sehr umfangreich konfigurierbar, aber unübersichtlich
-
----
-
-## Anmerkungen SQL Developer
-- Ist am übersichtlichsten
-- Viele Formate für Datenexport (auch CSV)
-- Umfangreich konfigurierbar
-- Blain Carter: [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
-
----
-
-## Anmerkungen PL/SQL Developer
-- Wenig konfigurierbar
-- Enttäuscht bezüglich Aufbau eines Quellcode-Repos
-
----
-
-## Anmerkungen PLEX
-- Wenig konfigurierbare DDL Optionen
-- Überzeugt für Quellcode Repo (wurde dafür entwickelt)
-- Kann nur CSV Daten exportieren (by design)
-- Liefert Script-Templates für Release
-- Ausgabeverzeichnisstruktur anpassbar
-- Benötigt APEX 5.1.4 oder höher
-
----
-
-<!-- .slide: data-background-image="./assets/jorgen-haland-786179-unsplash.jpg" -->
-
-## Fragen?
-
------
-
 <!-- .slide: data-background-image="./assets/tim-easley-326493-unsplash.jpg" -->
 
 # PLEX
@@ -207,25 +183,6 @@ ACHTUNG: Denglish ist unvermeidbar ;-)
 ## Ausgangsbasis: Sample DB App
 
 ![App Frontend](./assets/plex_backapp_1.png)
-
-
----
-
-## PLEX.BackApp Rückgabeformat
-
-```sql
--- PUBLIC APEX TYPES
-
--- apex_t_export_file
-TYPE wwv_flow_t_export_file IS OBJECT (
-  name     VARCHAR2(255),
-  contents CLOB
-)
-
--- apex_t_export_files
-TYPE wwv_flow_t_export_files IS
-  TABLE OF wwv_flow_t_export_file
-```
 
 ---
 
@@ -295,6 +252,24 @@ BEGIN
     END IF;
   END LOOP;
 END;
+```
+
+---
+
+## PLEX.BackApp Rückgabeformat
+
+```sql
+-- PUBLIC APEX TYPES
+
+-- apex_t_export_file
+TYPE wwv_flow_t_export_file IS OBJECT (
+  name     VARCHAR2(255),
+  contents CLOB
+)
+
+-- apex_t_export_files
+TYPE wwv_flow_t_export_files IS
+  TABLE OF wwv_flow_t_export_file
 ```
 
 ---
@@ -418,7 +393,7 @@ DDL = durch die Landschaft - von DEV über INT nach PROD
 - Projektweites Suchen und Ersetzen
 - Integriertes Terminal
 - Multi-Cursor
-- PL/SQL Unterstützung
+- [PL/SQL Unterstützung](https://github.com/zabel-xyz/plsql-language)
 - ...
 - [Homepage](https://code.visualstudio.com/)
 
