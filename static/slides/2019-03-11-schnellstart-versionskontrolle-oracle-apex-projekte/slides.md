@@ -305,8 +305,10 @@ Agile DB-Entwicklung
 
 Jede Änderung ist eine Migration
 
+- [Wikipedia: Schema migration](https://en.wikipedia.org/wiki/Schema_migration)
 - [Artikel Samuel Nitsche](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
 - [Artikel Martin Fowler](https://www.martinfowler.com/articles/evodb.html)
+
 
 Unser Ansatz ist nur eine mögliche<br>Ausprägung der Idee
 
@@ -324,14 +326,16 @@ Unser Ansatz ist nur eine mögliche<br>Ausprägung der Idee
 
 ---
 
-## Nur Shell Scripte
+## Mehrarbeit, die sich auszahlt
+- Nur Shell Scripte
 - Kein manueller App Export/Import
 - Alle Scripte wiederanlauffähig
-- Mehrarbeit, die sich auszahlt
 
 ---
 
-## Demo App Export/Import
+## Demo 
+
+App Export/Import
 
 ---
 
@@ -383,11 +387,57 @@ Unser Ansatz ist nur eine mögliche<br>Ausprägung der Idee
 <!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.jpg" -->
 
 # Fazit
+
+---
+
+## Was wir jetzt haben
 - Übersichtliches Repository
 - Dateibasiertes Arbeiten
 - Immer Skripte
 - Wiederanlauffähigkeit
-- Next Step: CI/CD
+
+---
+
+## Das war nur der Anfang
+
+Nächster Schritt: CI/CD
+<!-- .element: class="fragment"-->
+
+---
+
+## Lesestoff 1
+
+Antti Kirmanen
+
+[Git vs. Subversion (SVN): Welches Versionskontrollsystem sollten Sie nutzen?](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
+
+Martin Fowler
+
+[Evolutionary Database Design](https://www.martinfowler.com/articles/evodb.html)
+
+---
+
+## Lesestoff 2
+
+Samuel Nitsche
+
+[There is no clean (database) development without Version Control](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/)
+
+[“One does not simply update a database” – migration based database development](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
+
+---
+
+## Lesestoff 3
+
+Blain Carter
+
+[Tips to help PL/SQL developers get started with CI/CD](https://learncodeshare.net/2018/04/30/tips-to-help-pl-sql-developers-get-started-with-ci-cd/)
+
+[CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
+
+Jeff Smith
+
+[19.X SQLcl Teaser: LIQUIBASE](https://www.thatjeffsmith.com/archive/2019/01/19-x-sqlcl-teaser-liquibase/)
 
 ---
 
