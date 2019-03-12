@@ -14,9 +14,12 @@ hugo server --port 8888
 hugo server --port 8888 --buildFuture
 ```
 
-
 ## Build
 
 ```bash
 hugo --cleanDestinationDir
 ```
+
+## Reveal Slide Export
+
+https://github.com/hakimel/reveal.js/#pdf-export

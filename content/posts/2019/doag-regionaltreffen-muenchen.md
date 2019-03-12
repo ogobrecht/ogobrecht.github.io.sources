@@ -4,8 +4,14 @@ description: DOAG Regionaltreffen 11. März 2019, München
 tags: [oracle, apex, version-control, slides, doag]
 lang: de
 publishdate: 2019-03-11
+lastmod: 2019-03-12 19:38:00
 ---
-Die Folien zu meinem Vortrag:
+
+Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Titel genannten Thema.
+
+Danke an Alle, die an dem Abend da waren. Der Raum war voll - wohl wegen Carsten Czarski und den von ihm vorgestellten APEX 19.1 Data Loading Features. Mit so vielen Teilnehmern macht das gleich doppelt Spaß.
+
+Für die Teilnehmer hier die Folien:
 
 {{< slides "/slides/2019-03-11-schnellstart-versionskontrolle-oracle-apex-projekte/" >}}
 
@@ -34,3 +40,6 @@ Vorgestellte Tools:
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 Die Hintergrundfotos der Folien stammen von unsplash.com - hier der Link zur vollständigen [Foto-Kollektion](https://unsplash.com/collections/4373998/quickstart-version-control-for-oracle-apex-projects).
+
+Happy coding and version controlling :-)<br>
+Ottmar
