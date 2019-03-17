@@ -1,13 +1,13 @@
 ---
-title: Schnellstart - Versionskontrolle für existierende (APEX-)Projekte
-description: DOAG Regionaltreffen 11. März 2019, München
+title: DOAG Regionaltreffen 11. März 2019, München
+description: "Vortrag: Schnellstart - Versionskontrolle für existierende (APEX-)Projekte"
 tags: [oracle, apex, version-control, slides, doag]
 lang: de
 publishdate: 2019-03-11
-lastmod: 2019-03-12 19:38:00
+lastmod: 2019-03-16 13:06:00
 ---
 
-Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Titel genannten Thema.
+Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Untertitel genannten Thema.
 
 Danke an Alle, die an dem Abend da waren. Der Raum war voll - wohl wegen Carsten Czarski und den von ihm vorgestellten APEX 19.1 Data Loading Features. Mit so vielen Teilnehmern macht das gleich doppelt Spaß.
 
