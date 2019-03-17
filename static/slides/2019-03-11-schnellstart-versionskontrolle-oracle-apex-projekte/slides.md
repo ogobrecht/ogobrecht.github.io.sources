@@ -84,8 +84,8 @@ Anmerkungen:
 - Unterverzeichnisse pro Objekttyp?
 - Eigene Dateien FK Constraints?
 - "Object already exist" verhinderbar?
-- Daten exportiertbar?
-- APEX App exportiertbar?
+- Daten exportierbar?
+- APEX App exportierbar?
 
 ---
 
