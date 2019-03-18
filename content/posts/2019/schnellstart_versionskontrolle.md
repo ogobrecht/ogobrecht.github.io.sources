@@ -82,7 +82,7 @@ Abbildung 1 zeigt das Ergebnis bezogen auf die Fragestellung.
 | Export Daten          | Ja          | Nein           | ***Jein*** |
 | Export APEX App       | ***Jein***  | Nein           | Nein       |
 
-*Abbildung 1*
+*Abbildung 1: Toolvergleich DDL-Export*
 
 
 Anmerkungen SQL Developer:
@@ -145,7 +145,7 @@ WITH
 SELECT backapp FROM dual;
 ```
 
-*Listing 1*
+*Listing 1: Möglicher Erstexport*
 
 
 Da PLEX boolsche Parameter besitzt, benutzen wir eine Inline-Funktion in der With-Klausel. Wer eine Datenbankversion kleiner als 12c verwendet erstellt sich eine Hilfsfunktion analog dem Beispiel. PLEX hat noch einige Parameter mehr um z.B. den APEX App Export zu konfigurieren. Interessierte Leser mögen bitte für mehr Infos die offizielle Projektseite unter github.com/ogobrecht/plex konsultieren. Je nach Größe des Schemas und der APEX App kann dieser erste Aufruf zwischen wenigen Sekunden und mehreren Minuten dauern. Das liegt nicht an der Trägheit von PLEX, sondern daran, dass im Hintergund für jedes Objekt das Package DBMS_METADATA bemüht wird, um das DDL des Objektes zu generieren. Wer an Laufzeitinfos interessiert ist, findet im Haupverzeichnis des Exportes eine Logdatei mit Infos, was PLEX so alles gemacht und wie lange die jeweiligen Schritte gedauert haben. PLEX selber existiert jetzt in einer ersten Version - Verbesserungsvorschläge oder Fehlermeldungen sind willkommen und können über die Projektseite als Issue gemeldet werden.
@@ -202,7 +202,7 @@ END;
 /
 ```
 
-*Listing 2*
+*Listing 2: Wiederanlauffähiges Skript*
 
 
 Somit haben wir jetzt eine Quellcodedatei, die für das Deployment nicht mehr geeignet ist. Schade eigentlich, denn bis eben hätten wir mit unserem Masterskript einfach immer alle Objekte-Skripte aufrufen können und nur die Änderungen (wie z.B. unsere neue Spalte) wären wirklich ausgeführt worden - ein einfaches Deployment und eine übersichtliche Historie im Repository. Dem gegenüber steht das automatische Erstellen von Diff-Skripten, die mitunter nicht wiederanlauffähig sind und auch bei etwas komplizierteren Schema-Änderungen die Gefahr eines Datenverlustes beinhalten. Man kommt auch bei sehr teuren Tools dieser Klasse nicht umhin, die generierten Skripte auf Richtigkeit zu überprüfen und manuelle Anpassungen für etwaige Datenmigrationen auszuführen. Die Entscheidung, welchen Weg man geht, nimmt einem niemand ab. Jetzt sind wir mittendrin in der Diskussion wie man ein Deployment in das Zielsystem durchführt. Da kann dann auch PLEX nicht weiterhelfen - außer dass das Package per se versucht, alle notwenigen Objekt-DDLs wiederanlauffähig zu extrahieren. Hier sind wir im weiten Feld der individuellen Bedürfnisse eines Projektes angekommen. Die von PLEX gelieferten Skriptbeispiele müssen auf jedn Fall an die Bedürfnisse des jweiligen Projektes angepasst werden. Der Autor z.B. trennt fast immer die Skripte auf zwischen Backend und Frontend - sowohl für den Export als auch das Deployment.
