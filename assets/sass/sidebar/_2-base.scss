@@ -34,6 +34,7 @@ body {
     text-size-adjust: 100%;
     font-feature-settings: 'kern' 1;
     font-kerning: normal;
+    word-wrap: break-word;
 }
 
 
@@ -101,7 +102,11 @@ figure {
 }
 
 // https://stackoverflow.com/questions/38324326/sass-multiplication-with-units
-figcaption {
+figcaption,
+/*pseudo captions*/
+div.highlight + p > em,
+table + p > em,
+img + p > em {
     font-style: italic;
     font-size: $small-font-size;
     color: $grey-color;
