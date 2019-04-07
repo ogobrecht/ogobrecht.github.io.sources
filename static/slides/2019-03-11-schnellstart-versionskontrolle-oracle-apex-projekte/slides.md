@@ -441,7 +441,13 @@ Jeff Smith
 
 ---
 
-<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.jpg" -->
+## Lesestoff 4
+
+Denis Savenko
+
+[Oracle APEX and ORDS deployments automation](https://dsavenko.me/apex-and-ords-deployments-automation/)
+
+---
 
 # The End
 
