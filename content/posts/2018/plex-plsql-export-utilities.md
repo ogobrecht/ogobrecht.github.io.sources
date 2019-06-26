@@ -4,32 +4,32 @@ description: Export Oracle APEX app, all schema objects and table data in one go
 tags: [project, oracle, apex, plsql, version-control]
 lang: en
 publishdate: 2018-08-26
-lastmod: 2019-03-01 20:01:00
+lastmod: 2019-06-26 21:49:00
 ---
 
-PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps and depends on APEX 5.1.4 or later for APEX_EXPORT and APEX_ZIP. It currently has two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:
+> UPDATE 2019-06-26 regarding PLEX v2.0.0: PLEX can now be installed and used without an APEX installation. However, to export an APEX app you need APEX 5.1.4 or higher installed on your system. Without APEX your PLEX package has no options for an app export because of conditional compilation. You are still able to export your schema DDL and table data. Hope this helps some folks out there -- Ottmar
+
+PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps. It currently has two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:
 
 - Export the app definition of an APEX app (splitted files and optional single SQL file)
 - Export all object DDL from the current schema
 - Export table data into CSV files
 - Provide basic script templates for export/import of whole app for DEV, TEST and PROD 
 - Everything in a (hopefully) nice directory structure ready to use with version control
-- Return value is a file collection of type apex_t_export_files for further processing
+- Return value is a file collection of type plex.tab_export_files (it was apex_t_export_files before PLEX version 2) for further processing
   - Each file in the collection is represented by a record with two columns
     - `name` of type VARCHAR2(255), which is in fact the file path
     - `contents` of type CLOB
   - You can optionally zip the file collection with the helper function `to_zip`
-  - Also see the [APEX_EXPORT][apex_export] package and my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post]
+  - Also see the my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post]
 
 
 
 Getting Started
 ----------------
 
-1. [Download the latest code][plex_download] - depends on APEX 5.1.4 or later because we use APEX_EXPORT and APEX_ZIP
-1. Compile these two files in your desired schema - could also be a central tools schema, don't forget `grant execute on plex to xxx`
-  - `PLEX.pks`
-  - `PLEX.pkb`
+1. [Download the latest code][plex_download]
+1. Run the provided install script `plex_install.sql` (provides compiler flags) in your desired schema - could also be a central tools schema, don't forget `grant execute on plex to xxx`
 1. Startup your favorite SQL Tool, connect to your app schema and fire up the following query:
 
 ```sql
@@ -67,46 +67,54 @@ Save the resulting BLOB file under a name with the extension `.zip` and extract 
 
 If you like, you can fully configure your first export into the zip file. The `PLEX.BackApp` method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listed here with their default values:
 
-UPDATE 2018-09-24 regarding PLEX v1.1.0: `p_object_filter_regex` is replaced by `p_object_name_like` and `p_object_name_not_like`; `p_data_table_filter_regex` is replaced by `p_data_table_name_like` and `p_data_table_name_not_like`. All new parameters expect a comma separated list of (not) like expressions. Please see examples in parameter comments below:
+> UPDATE 2018-09-24 regarding PLEX v1.1.0: `p_object_filter_regex` is replaced by `p_object_name_like` and `p_object_name_not_like`. `p_data_table_filter_regex` is replaced by `p_data_table_name_like` and `p_data_table_name_not_like`. All new parameters expect a comma separated list of (not) like expressions. Please see examples in parameter comments below -- Ottmar
 
 ```sql
--- Inline function (needs Oracle 12c or higher)
-with
-  function backapp return blob is 
-  begin
-    return plex.to_zip(plex.backapp(
-      p_app_id                    => null,  -- If null, we simply skip the APEX app export.
+-- Inline function because of boolean parameters (needs Oracle 12c or higher).
+-- Alternative create a helper function and call that in a SQL context.
+WITH
+  FUNCTION backapp RETURN BLOB IS
+  BEGIN
+    RETURN plex.to_zip(plex.backapp(
+      -- All parameters are optional and shown with their defaults
+      -- App related options (only available, when APEX is installed):
+      p_app_id                    => NULL,  -- If null, we simply skip the APEX app export.   
       p_app_date                  => true,  -- If true, include export date and time in the result.
       p_app_public_reports        => true,  -- If true, include public reports that a user saved.
       p_app_private_reports       => false, -- If true, include private reports that a user saved.
       p_app_notifications         => false, -- If true, include report notifications.
       p_app_translations          => true,  -- If true, include application translation mappings and all text from the translation repository.
       p_app_pkg_app_mapping       => false, -- If true, export installed packaged applications with references to the packaged application definition. If FALSE, export them as normal applications.
-      p_app_original_ids          => true,  -- If true, export with the IDs as they were when the application was imported.
+      p_app_original_ids          => false, -- If true, export with the IDs as they were when the application was imported.
       p_app_subscriptions         => true,  -- If true, components contain subscription references.
       p_app_comments              => true,  -- If true, include developer comments.
-      p_app_supporting_objects    => null,  -- If 'Y', export supporting objects. If 'I', automatically install on import. If 'N', do not export supporting objects. If null, the application's include in export deployment value is used.
+      p_app_supporting_objects    => NULL,  -- If 'Y', export supporting objects. If 'I', automatically install on import. If 'N', do not export supporting objects. If null, the application's include in export deployment value is used.
       p_app_include_single_file   => false, -- If true, the single sql install file is also included beside the splitted files.
       p_app_build_status_run_only => false, -- If true, the build status of the app will be overwritten to RUN_ONLY.
-      -----
+      -- Object related options:
       p_include_object_ddl        => false, -- If true, include DDL of current user/schema and all its objects.
-      p_object_name_like          => null,  -- A comma separated list of like expressions to filter the objects - example: `EMP%,DEPT%` will be translated to: `where ... and (object_name like 'EMP%' or object_name like 'DEPT%')`.
-      p_object_name_not_like      => null,  -- A comma separated list of not like expressions to filter the objects - example: `EMP%,DEPT%` will be translated to: `where ... and (object_name not like 'EMP%' and object_name not like 'DEPT%')`.
-      -----
-      p_include_data              => false, -- If true, include CSV data of each table.
-      p_data_as_of_minutes_ago    => 0,     -- Read consistent data with the resulting timestamp(SCN).
-      p_data_max_rows             => 1000,  -- Maximum number of rows per table.
-      p_data_table_name_like      => null,  -- A comma separated list of like expressions to filter the tables - example: `EMP%,DEPT%` will be translated to: `where ... and (table_name like 'EMP%' or table_name like 'DEPT%')`.
-      p_data_table_name_not_like  => null,  -- A comma separated list of not like expressions to filter the tables - example: `EMP%,DEPT%` will be translated to: `where ... and (table_name not like 'EMP%' and table_name not like 'DEPT%')`.
-      -----
+      p_object_type_like          => NULL,  -- A comma separated list of like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type like '%BODY' escape '\' or object_type like 'JAVA%' escape '\').
+      p_object_type_not_like      => NULL,  -- A comma separated list of not like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type not like '%BODY' escape '\' and object_type not like 'JAVA%' escape '\').
+      p_object_name_like          => NULL,  -- A comma separated list of like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name like 'EMP%' escape '\' or object_name like 'DEPT%' escape '\').
+      p_object_name_not_like      => NULL,  -- A comma separated list of not like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name not like 'EMP%' escape '\' and object_name not like 'DEPT%' escape '\').
+      -- Data related options:
+      p_include_data              => false, -- If true, include DDL of current user/schema and all its objects.
+      p_data_as_of_minutes_ago    => 0,     -- A comma separated list of like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type like '%BODY' escape '\' or object_type like 'JAVA%' escape '\').
+      p_data_max_rows             => 1000,  -- A comma separated list of not like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type not like '%BODY' escape '\' and object_type not like 'JAVA%' escape '\').
+      p_data_table_name_like      => NULL,  -- A comma separated list of like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name like 'EMP%' escape '\' or object_name like 'DEPT%' escape '\').
+      p_data_table_name_not_like  => NULL,  -- A comma separated list of not like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name not like 'EMP%' escape '\' and object_name not like 'DEPT%' escape '\').
+      -- Miscellaneous options:
       p_include_templates         => true,  -- If true, include templates for README.md, export and install scripts.
-      p_include_runtime_log       => true   -- If true, generate file plex_backapp_log.md with runtime statistics.
-    ));
-  end backapp;
-select backapp from dual;
+      p_include_runtime_log       => true,  -- If true, generate file plex_runtime_log.md with detailed runtime infos.
+      p_include_error_log         => true,  -- If true, generate file plex_error_log.md with detailed error messages.
+      p_base_path_backend         => 'app_backend',  -- The base path in the project root for the database DDL files.
+      p_base_path_frontend        => 'app_frontend', -- The base path in the project root for the APEX UI install files.
+      p_base_path_data            => 'app_data'));   -- The base path in the project root for the data files.
+  END backapp;
+SELECT backapp FROM dual;
 ```
 
-ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you are interested in runtime statistics of PLEX, you can inspect the delivered `plex_backapp_log.md` in the directory root.<br>
+ATTENTION: Exporting all database objects can take some time. I have seen huge runtime differences from 6 seconds for a small app up to several hundred seconds for big apps and/or slow databases. This is normally not the problem of PLEX. If you are interested in runtime statistics of PLEX, you can inspect the delivered `plex_runtime_log.md` in the root directory.<br>
 Also, the possibility to export the data of your tables into CSV files does not mean that you should do this without thinking about it. The main reason for me to implement this feature was to track changes on catalog tables by regularly calling this export feature with a sensitive table filter and max rows parameter as catalog data is often relevant in business logic.
 
 If you have organized your app into multiple schemas as described in [The Pink Database Paradigm][pinkdb], you may need to export database objects from more then one schema. This is no problem for PLEX.BackApp as all parameters are optional - you can simply logon to your second or third schema and extract only the DDL for these schemas by omitting the `p_app_id` parameter and setting `p_include_object_ddl` to `true`. Then unload the DDL files into a different directory - for example `app_backend_schemaName`.
@@ -128,7 +136,7 @@ If the directory structure provided by PLEX does not match your needs - no probl
 
 ```sql
 DECLARE
-  l_files apex_t_export_files;
+  l_files plex.tab_export_files; -- before PLEX v2 it was apex_t_export_files
 BEGIN
   l_files := plex.backapp(p_app_id => 100);
   FOR i IN 1..l_files.count LOOP
