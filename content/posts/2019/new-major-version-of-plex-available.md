@@ -16,12 +16,12 @@ PLEX is now independent from an APEX installation. Thanks to Anton Scheffer for 
 The other improvement is better error handling and logging. Per default you will find two files in an export collection: plex_runtime_log and plex_error_log. The former is for an overview what happened and how long it took and the latter is for detailed error messages. If you encounter errors and you think that should not happen and is a problem of PLEX, then please open an [issue on GitHub][issue]. I was able to export the schema APEX_19_0100 with around 5000 objects on my dev machine...
 
 - [Project on Github][github]
-- [Direct download of version 2.0.0][download]
+- [Download latest version][download]
 
 Happy exporting :-)<br>
 Ottmar
 
-[download]: https://github.com/ogobrecht/plex/archive/v2.0.0.zip
+[download]: https://github.com/ogobrecht/plex/releases/latest
 [github]: https://github.com/ogobrecht/plex
 [issue]: https://github.com/ogobrecht/plex/issues/new
 [plex]: https://ogobrecht.github.io/posts/2018-08-26-plex-plsql-export-utilities/

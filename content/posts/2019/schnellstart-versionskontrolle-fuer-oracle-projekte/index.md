@@ -1,12 +1,23 @@
 ---
-title: Schnellstart - Versionskontrolle für existierende Oracle (APEX) Projekte
-description: TBD
+title: Schnellstart - Versionskontrolle für existierende Oracle-Projekte
+description: DOAG Red Stack Magazin 03-2019
 tags: [oracle, apex, version-control, doag]
 lang: de
-publishdate: 2019-12-31
+publishdate: 2019-07-20
 ---
 
-*Viele Oracle (APEX) Projekte setzen bis heute keine Versionskontrolle ein. Die Gründe dafür sind vielfältig. Meist geht man wohl davon aus, dass die Datenbank ein sicherer Ort für den Quellcode ist. Mit einem funktionierenden Backup ist das auch richtig, man verliert aber auf jeden Fall die komplette Historie der Änderungen. Oft fehlt in laufenden Projekten auch einfach die Zeit, sich zusätzlich noch mit der Einführung einer Quellcodeversionierung zu beschäftigen, weil auf den ersten Blick kein direkter Nutzen zu sehen ist. Wer wagt unter Zeitdruck da den zweiten Blick? Dieser Artikel will die Hürde für die Einführung einer Versionsverwaltung ein wenig tiefer legen.*
+*Viele Oracle-Projekte setzen bis heute keine Versionskontrolle ein. Die Gründe dafür sind vielfältig. Meist geht man wohl davon aus, dass die Datenbank ein sicherer Ort für den Quellcode ist. Mit einem funktionierenden Backup ist das auch richtig, man verliert aber auf jeden Fall die komplette Historie der Änderungen. Oft fehlt in laufenden Projekten auch einfach die Zeit, sich zusätzlich noch mit der Einführung einer Quellcodeversionierung zu beschäftigen, weil auf den ersten Blick kein direkter Nutzen zu sehen ist. Wer wagt unter Zeitdruck da den zweiten Blick? Dieser Artikel will die Hürde für die Einführung einer Versionsverwaltung ein wenig tiefer legen.*
+
+
+{{< toc "Inhaltsverzeichnis" >}}
+
+
+## Hinweis DOAG
+
+Dieser Artikel erschien im DOAG Red Stack Magazin 03-2019 und steht auch im [Original][doag] zur Verfügung. Im Gegensatz zum Original kann es hier auf meinem Blog zu Aktualisierungen kommen, falls sich relevante Dinge ändern. Zum Beispiel ist seit der Version zwei des erwähnten Projektes PLEX (PL/SQL Export Utilities) eine APEX-Installation keine Voraussetzung mehr. Damit können auch reine Oracle-Datenbank-Projekte PLEX nutzen - mehr dazu in [diesem Blog-Eintrag][plex2].
+
+[doag]: https://www.doag.org/formes/pubfiles/11388332/03_2019-Red_Stack_Magazin-Ottmar_Gobrecht-Schnellstart_Versionskontrolle_fur_existierende_Oracle_(APEX)Projekte.pdf
+[plex2]: /posts/2019-06-26-new-major-version-of-plex-available/
 
 
 ## Einleitung
@@ -87,7 +98,8 @@ WITH
   BEGIN
     RETURN plex.to_zip(plex.backapp(
       p_app_id               => 100,
-        /* If null, we simply skip the APEX app export. */
+        /* If null, we simply skip the APEX app export. 
+        Parameter only available if APEX installed. */
       p_include_object_ddl   => true,
         /* If true, include DDL of current user/schema and 
         all its objects. */

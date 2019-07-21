@@ -12,7 +12,7 @@ lastmod: 2017-08-29 20:00:00
 
 ## Einleitung
 
-Dieser Artikel erschien in der DOAG/SOUG News 02-2015 und steht auch im [Original][doag] zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
+Dieser Artikel erschien im Magazin DOAG/SOUG News 02-2015 und steht auch im [Original][doag] zur Verfügung. Im Gegensatz zu der Papierversion der DOAG haben wir natürlich auf einer Webseite alle Möglichkeiten, D3 live zu zeigen - also los, wir starten mit einer Netzwerkvisualisierung live im Browser (JavaScript muß aktiv sein, damit die Beispiele auf dieser Seite funktionieren):
 
 [doag]: https://mydoag.doag.org/formes/pubfiles/6900184/docs/Publikationen/DOAGNews/2015/02-2015/2015-02-News-Ottmar-Gobrecht-D3-Data-Driven-Documents.pdf
 
