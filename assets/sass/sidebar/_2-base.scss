@@ -99,6 +99,10 @@ figure {
     & pre {
         margin-bottom: 0;
     }
+
+    & table {
+        margin-bottom: 0;
+    }
 }
 
 // https://stackoverflow.com/questions/38324326/sass-multiplication-with-units
