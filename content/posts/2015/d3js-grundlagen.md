@@ -4,7 +4,7 @@ description: DOAG/SOUG News 02-2015
 tags: [oracle, apex, doag, d3js, svg]
 lang: de
 publishdate: 2015-03-01
-lastmod: 2017-08-29 20:00:00
+lastmod: 2019-08-15 21:00:00
 ---
 
 {{< toc "Inhaltsverzeichnis" >}}
@@ -57,8 +57,8 @@ Man kann SVG Grafiken auf mehreren Wegen in HTML einbinden: Als externe Grafik o
 Wer jQuery kennt, wird sich schnell in D3 zurechtfinden. D3 unterstützt auch die Methodenverkettung und die Basismethoden wie `append` und `attr` haben die gleichen Namen oder zumindest ähnliche wie z.B. `style` bei D3 und `css` bei jQuery. Listing 1 zeigt ein Beispiel, drei SVG Elemente direkt in HTML und ein Element prozedural mit D3.
 
 
-<figure>
-{{< highlight "html" >}}
+{{< figure "Listing 1: Ein einfaches SVG Beispiel" >}}
+```html
 <!DOCTYPE html><html><head><title>SVG Beispiel</title></head><body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -79,9 +79,8 @@ Wer jQuery kennt, wird sich schnell in D3 zurechtfinden. D3 unterstützt auch di
 </script>
 
 </script></body></html>
-{{< /highlight >}}
-<figcaption>Listing 1: Ein einfaches SVG Beispiel</figcaption>
-</figure>
+```
+{{< /figure >}} 
 
 
 <figure>
@@ -103,8 +102,9 @@ In JavaScript kann mit den aus CSS bekannten Selektoren Elemente im DOM auswähl
 
 [select]: http://bost.ocks.org/mike/selection/
 
-<figure>
-{{< highlight "js" >}}
+
+{{< figure "Listing 2: JavaScript versus D3" >}}
+```js
 // Schleife über alle Elemente: JavaScript
 var p = document.getElementsByTagName('p');
 for (var i = 0; i < p.length; i++) {
@@ -114,9 +114,8 @@ for (var i = 0; i < p.length; i++) {
 
 // Schleife über alle Elemente: D3
 d3.selectAll('p').style('color','red');
-{{< /highlight >}}
-<figcaption>Listing 2: JavaScript versus D3</figcaption>
-</figure>
+```
+{{< /figure >}}
 
 
 ## Die D3 Mengenlehre: Wie man Daten an das DOM bindet
@@ -138,8 +137,8 @@ Bevor man Daten an das DOM binden kann, müssen diese erst einmal zur Verfügung
 
 Nun zur eigentlichen Frage: D3 bindet Daten an das DOM, in dem man einer Selection über den Data Operator die Daten in Form eines Arrays übergibt. Hier kommt der Eingangs erwähnte Data Join zum Einsatz. Zurückgeliefert werden drei neue Selections, die D3 Update, Enter und Exit nennt. Abbildung 2 zeigt schematisch die Zusammenhänge. In der Update Selection sind die Elemente des DOM mit den Elementen des Data Arrays in der Reihenfolge ihres jeweiligen Erscheinens verknüpft. Wie man unschwer errät, kann aber eine unterschiedliche Anzahl an Elementen im DOM und in den Daten vorhanden sein. Wenn im DOM mehr Elemente vorhanden sind als Daten, dann liegen diese Elemente in der Exit Selection, mit der man die Elemente aus dem DOM entfernen kann. Gibt es mehr Daten als DOM Elemente, dann befinden sich diese Daten in der Enter Selection, mit der die fehlenden Elemente im DOM erstellt werden können. Listing 3 zeigt ein Beispiel und darauf folgt das Live-Ergebnis - wer möchte, kann in der Browserkonsole damit ein wenig herumspielen.
 
-<figure>
-{{< highlight "html" >}}
+{{< figure "Listing 3: Data Join (weiteres Beispiel auf d3js.org: [Three Little Circles](http://bost.ocks.org/mike/circles/))" >}}
+```html
 <!DOCTYPE html><html><head><title>Data Join</title></head><body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -164,9 +163,8 @@ Nun zur eigentlichen Frage: D3 bindet Daten an das DOM, in dem man einer Selecti
   v3.p.exit().remove();
 
 </script></body></html>
-{{< /highlight >}}
-<figcaption>Listing 3: Data Join (weiteres Beispiel auf d3js.org: <a href="http://bost.ocks.org/mike/circles/">Three Little Circles]</a>)</figcaption>
-</figure>
+```
+{{< /figure >}}
 
 <figure>
 <div id="v3" class="shadow" style="padding:10px; display:inline-block;">
@@ -181,8 +179,8 @@ Für den Fall, das der einfache Data Join über die Reihenfolge der Elemente in 
 
 [6]: http://bost.ocks.org/mike/selection/
 
-<figure>
-{{< highlight "html" >}}
+{{< figure "Listing 4: Data Key Function" >}}
+```html
 <!DOCTYPE html><html><head><title>Data Key Function</title></head><body>
 <svg id="v4" viewBox="0 0 200 30" style="width:500px; max-width:100%;"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script><script>
@@ -214,9 +212,8 @@ Für den Fall, das der einfache Data Join über die Reihenfolge der Elemente in 
     .attr('fill', function(d) { return d.color; });
 
 </script></body></html>
-{{< /highlight >}}
-<figcaption>Listing 4: Data Key Function</figcaption>
-</figure>
+```
+{{< /figure >}}
 
 <figure>
 <svg id="v4" class="shadow" viewBox="0 0 200 30" style="width:500px;"></svg>
@@ -264,8 +261,8 @@ Eine Closure ist am Ende nichts anderes als ein Funktionsaufruf, bei dem eine Fu
 
 Listing 5 zeigt die Prinzipien. Abbildung 5 zeigt das Ergebnis aus Listing 5 und kann einfach in der JavaScript Console des Browsers nachvollzogen werden.
 
-<figure>
-{{< highlight "html" >}}
+{{< figure "Listing 5: Prinzip Closure" >}}
+```html
 <!DOCTYPE html><html><head><title>Prinzip Closure</title></head><body>
 <script>
 
@@ -290,9 +287,8 @@ Listing 5 zeigt die Prinzipien. Abbildung 5 zeigt das Ergebnis aus Listing 5 und
   }
 
 </script></body></html>
-{{< /highlight >}}
-<figcaption>Listing 5: Prinzip Closure</figcaption>
-</figure>
+```
+{{< /figure >}}
 
 <figure>
 <img src="/slides/2015-06-09-d3js-data-driven-documents/assets/test-closure.png" alt="Test Closure in Browser Konsole"/>
@@ -310,8 +306,8 @@ Die Besonderheit einer kräftebasierenden, selbstorganisierenden Netzwerkvisuali
 
 Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force Layout. Zuerst die Daten - diese dürften den meisten bekannt sein. Als Knoten nehmen wir die Mitarbeiter der EMP-Tabelle, als Links die Beziehung zum Vorgesetzten. Die Links beziehen sich auf die Knoten in der Reihenfolge ihres Erscheinens, es wird also keine Key Function eingesetzt, um die Knoten zu identifizieren. Dies ist ok, solange keine Updates auf den Graph erfolgen sollen, ansonsten wird es einem schwer fallen, die Knoten im DOM zu identifizieren.
 
-<figure>
-{{< highlight "html" >}}
+{{< figure "Listing 6: Force Layout" >}}
+```html
 <!DOCTYPE html><html><head><title>Force Layout</title></head><body>
 <svg id="v6"></svg><!--graph container-->
 <script src="http://d3js.org/d3.v3.min.js"></script><script>
@@ -377,9 +373,8 @@ Listing 6 zeigt ein minimales, vollständig lauffähiges Script für ein Force L
     .start();
 
 </script></body></html>
-{{< /highlight >}}
-<figcaption>Listing 6: Force Layout</figcaption>
-</figure>
+```
+{{< /figure >}}
 
 Will man z.B. die Knoten in Farbe und Größe passend zu den Daten gestalten, kann man auf die vielen Hilfsfunktionen von D3 zurückgreifen. Als Beispiel sei hier die Farbe der Knoten genannt. In Listing 6 kann man erkennen, wie die Variable `v6.color` mit der Funktion `d3.scale.category10()` belegt wird. Diese Funktion liefert eine aus 10 verschiedenen Farben für den übergebenen Wert zurück. Wir benutzen dies dafür, um über die Abteilungsnummer eines Mitarbeiters eine Farbe zurückzubekommen - somit haben alle Mitarbeiter einer Abteilung die gleiche Knotenfarbe, ohne dass wir dafür etwas programmieren müssen.
 
