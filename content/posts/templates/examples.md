@@ -14,10 +14,17 @@ var dummy = 123;
 ```
 {{< /figure >}}
 
-{{< figure "xxx" >}}
+{{< figure "caption" >}}
 ```html
 var dummy = 123;
 ```
+{{< /figure >}}
+
+
+## Image Figure
+
+{{< figure "caption" >}}
+![altText](linkToImage)
 {{< /figure >}}
 
 
