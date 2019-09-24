@@ -1,2 +1,6 @@
 {{ with .Get 0 }}<h2>{{ . }}</h2>{{ end }}
-{{ .Page.TableOfContents | replaceRE `<ul>\s*<li>\s*<ul>` `<ul>` | replaceRE `</ul>\s*</li>\s*</ul>` `</ul>` | safeHTML }}
+{{ .Page.TableOfContents }}
+{{/*
+Also see layouts/_default/single.html line 10 with fix for
+corrupted Blackfriday rendered ToC: `.Content | replaceRE ...` 
+*/}}
