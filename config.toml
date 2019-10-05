@@ -3,7 +3,6 @@ languageCode = "en"
 title = "Ottmar’s Notes"
 
 paginate = 100
-preserveTaxonomyNames = true
 pygmentsCodefences = true
 pygmentsUseClasses = true
 enableRobotsTXT = true
