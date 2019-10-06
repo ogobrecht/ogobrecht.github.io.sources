@@ -1,4 +1,4 @@
-<!-- .slide: data-background-image="./assets/braden-collum-87874-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/braden-collum-87874-unsplash.jpg" -->
 
 # Schnellstart
 ## Versionskontrolle für existierende Projekte
@@ -32,7 +32,7 @@ Nürnberg, 19. November 2019
 
 -----
 
-<!-- .slide: data-background-image="./assets/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" -->
 
 # Motivation
 
@@ -52,12 +52,26 @@ Kurz: Deployment Pain
 
 ## Motivation - DevOps
 
+Leistungsstarke gegenüber leistungsschwachen Unternehmen laut [State of DevOps Report 2017](https://puppet.com/resources/whitepaper/2017-state-of-devops-report)
+
+- 46-mal häufigere Code Deployments
+- 440-mal schneller von Commit zu Deployment
+- 96-mal schnellere Wiederherstellung nach Ausfällen
+- 5-mal niedrigere Ausfallrate bei Änderungen
+
+---
+
+## Bullshit, oder?
+
 Buchtip: [Das Mindset von DevOps - Accelerate](https://www.heise.de/developer/artikel/Das-Mindset-von-DevOps-Accelerate-4495067.html)
 
 - Performance der Softwarebereitstellung
 - 24 Schlüsselkompetenzen in 5 Kategorien
 - Vorwort: [Martin Fowler](https://martinfowler.com/)
 - Wissenschaftlich belegt
+
+<small>Der Kern: Auf Kompetenzen, nicht auf Reife fokussieren.<br>
+Verbesserungen kontinuierlich vorantreiben.</small>
 
 ---
 
@@ -72,7 +86,8 @@ Buchtip: [Das Mindset von DevOps - Accelerate](https://www.heise.de/developer/ar
 ---
 
 ## Continuous Delivery-Kompetenzen
-### Die ersten Schritte
+
+Die ersten Schritte
 
 1. Versionsverwaltung (unser Thema)
 2. Deployment-Automatisierung
@@ -85,14 +100,16 @@ Buchtip: [Das Mindset von DevOps - Accelerate](https://www.heise.de/developer/ar
 
 ## Kulturelle Kompetenzen - Beispiel ;-)
 
-Kapitel 11: Führungskräfte und Manager,<br>Transformationale Führung
+Kapitel 11: Führungskräfte und Manager,<br>
+Transformationale Führung
 
 > Ermutigen Sie Ihre Belegschaft, mindestens einmal im Jahr technische Konferenzen zu besuchen und das dort Gelernte für das gesamte Team zusammenzufassen.
 
 ---
 
 ## Unser Ziel: Schnellstart
-### Export "all in one" für Versionskontrolle
+
+Export "all in one" für Versionskontrolle
 
 - Frontend (APEX App)
 - Backend (Schema DDL)
@@ -103,7 +120,7 @@ Kapitel 11: Führungskräfte und Manager,<br>Transformationale Führung
 
 ---
 
-## Unser Ziel: Verzeichnisstruktur
+## Gewünschte Verzeichnisstruktur
 
 ![Angestrebte Verzeichnisstruktur](./assets/repo_verzeichnisstruktur.png)
 
@@ -115,7 +132,7 @@ Anmerkungen:
 
 ---
 
-<!-- .slide: data-background-image="./assets/michael-d-beckwith-575798-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/michael-d-beckwith-575798-unsplash.jpg" -->
 
 > “There is no clean (database) development without Version Control”
 >
@@ -123,7 +140,7 @@ Anmerkungen:
 
 -----
 
-<!-- .slide: data-background-image="./assets/clark-young-135435-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/clark-young-135435-unsplash.jpg" -->
 
 # Tools
 
@@ -216,13 +233,13 @@ Anmerkungen:
 
 ---
 
-<!-- .slide: data-background-image="./assets/camylla-battani-784361-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/camylla-battani-784361-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/tim-easley-326493-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/gabriel-gabriel-wVB8tH5_L9s-unsplash.jpg" -->
 
 # PLEX
 
@@ -297,7 +314,7 @@ Anmerkungen:
 
 ## Anpassen File Collection
 
-Initialisierung und Schleife:
+Initialisierung und Schleife
 
 ```sql
 DECLARE
@@ -315,7 +332,7 @@ END;
 
 ## Anpassen File Collection
 
-Innerhalb der Schleife:
+Innerhalb der Schleife
 
 ```sql
 -- relocate APEX app files from app_frontend to app_ui
@@ -339,13 +356,13 @@ END IF;
 
 ---
 
-<!-- .slide: data-background-image="./assets/kevin-grieve-660962-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/kevin-grieve-660962-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/andrea-cappiello-770323-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/andrea-cappiello-770323-unsplash.jpg" -->
 
 # DDL
 ## <span style="color:red;">D</span>urch <span style="color:red;">d</span>ie <span style="color:red;">L</span>andschaft ;-)
@@ -359,7 +376,10 @@ Von DEV über INT nach PROD
 ## Ab hier dateibasiertes Arbeiten
 - Keine Änderungen über Klickibunti-Tools
 - Alle Änderungen per Skript
-- Nur noch APEX-Frontend exportieren
+- Nur noch deklarativen Code exportieren
+  - ORDS-REST-Services
+  - APEX-Frontend
+  - ...
 
 ---
 
@@ -380,17 +400,17 @@ Jede Änderung ist eine Migration
 - [Artikel Martin Fowler](https://www.martinfowler.com/articles/evodb.html)
 
 
-Unser Ansatz ist nur eine mögliche<br>Ausprägung der Idee
+<small>Unser Ansatz ist nur eine mögliche Ausprägung der Idee</small>
 
 ---
 
-<!-- .slide: data-background-image="./assets/kawtar-cherkaoui-125346-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/kawtar-cherkaoui-125346-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/james-thomas-125093-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/james-thomas-125093-unsplash.jpg" -->
 
 # Geschwindigkeit
 
@@ -417,17 +437,16 @@ App Export/Import
 - Kleine Schritte
 - Immer besser werden
 - Nicht stehenbleiben
-- DevOps verbreitet sich von unten...
 
 ---
 
-<!-- .slide: data-background-image="./assets/wayne-bishop-5737-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/wayne-bishop-5737-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/ricky-kharawala-308072-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/ricky-kharawala-308072-unsplash.jpg" -->
 
 # Mehr Tools
 
@@ -442,7 +461,9 @@ App Export/Import
 
 ---
 
-<!-- .slide: data-background-image="./assets/github-desktop.png" -->
+## GitHub Desktop
+
+![Screenshot GitHub Desktop](./assets/github-desktop.png)
 
 ---
 
@@ -457,17 +478,19 @@ App Export/Import
 
 ---
 
-<!-- .slide: data-background-image="./assets/vs-code.png" -->
+## VS Code
+
+![Screenshot VS Code](./assets/vs-code.png)
 
 ---
 
-<!-- .slide: data-background-image="./assets/alexander-andrews-511680-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/alexander-andrews-511680-unsplash.jpg" -->
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="./assets/matt-lamers-683008-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/matt-lamers-683008-unsplash.jpg" -->
 
 # Fazit
 
@@ -482,7 +505,8 @@ App Export/Import
 ---
 
 ## Das war nur der Anfang
-### Nächste Schritte
+
+Nächste Schritte
 
 1. ~~Versionsverwaltung (unser Thema)~~
 2. Deployment-Automatisierung
@@ -493,51 +517,50 @@ App Export/Import
 
 ---
 
+## Obwohl...
+
+Versionskontrolle nach DevOps meint<br>
+"Alle Produktionsartefakte"
+
+- ~~Anwendungscode~~
+- Anwendungskonfigurationen
+- Build-Skripte
+- Systemkonfigurationen
+- ...
+
+Kurz: Infrastruktur als Code
+
+
+---
+
 ## Lesestoff 1
 
-Antti Kirmanen
+- Buchtip Heise Developer: [Das Mindset von DevOps - Accelerate - 24 Schlüsselkompetenzen, um leistungsstarke Technologieunternehmen zu entwickeln und zu skalieren](https://www.heise.de/developer/artikel/Das-Mindset-von-DevOps-Accelerate-4495067.html)
+- Gareth Rushgrove: [Macht DevOps Unternehmen erfolgreicher?](https://www.silicon.de/41661475/macht-devops-unternehmen-erfolgreicher)
+- Puppet: State of DevOps Report [2017](https://puppet.com/resources/whitepaper/2017-state-of-devops-report), [2018](https://puppet.com/resources/whitepaper/2018-state-of-devops-report), [2019](https://puppet.com/resources/whitepaper/state-of-devops-report)
 
-[Git vs. Subversion (SVN): Welches Versionskontrollsystem sollten Sie nutzen?](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
-
-Martin Fowler
-
-[Evolutionary Database Design](https://www.martinfowler.com/articles/evodb.html)
 
 ---
 
 ## Lesestoff 2
 
-Samuel Nitsche
-
-[There is no clean (database) development without Version Control](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/)
-
-[“One does not simply update a database” – migration based database development](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
+- Antti Kirmanen: [Git vs. Subversion (SVN): Welches Versionskontrollsystem sollten Sie nutzen?](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
+- Martin Fowler: [Evolutionary Database Design](https://www.martinfowler.com/articles/evodb.html)
+- Samuel Nitsche: [There is no clean (database) development without Version Control](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/)
+- [“One does not simply update a database” – migration based database development](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
 
 ---
 
 ## Lesestoff 3
 
-Blain Carter
-
-[Tips to help PL/SQL developers get started with CI/CD](https://learncodeshare.net/2018/04/30/tips-to-help-pl-sql-developers-get-started-with-ci-cd/)
-
-[CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
-
-Jeff Smith
-
-[19.X SQLcl Teaser: LIQUIBASE](https://www.thatjeffsmith.com/archive/2019/01/19-x-sqlcl-teaser-liquibase/)
+- Blain Carter: [Tips to help PL/SQL developers get started with CI/CD](https://learncodeshare.net/2018/04/30/tips-to-help-pl-sql-developers-get-started-with-ci-cd/)
+- [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
+- Jeff Smith: [19.X SQLcl Teaser: LIQUIBASE](https://www.thatjeffsmith.com/archive/2019/01/19-x-sqlcl-teaser-liquibase/)
+- Denis Savenko: [Oracle APEX and ORDS deployments automation](https://dsavenko.me/apex-and-ords-deployments-automation/)
 
 ---
 
-## Lesestoff 4
-
-Denis Savenko
-
-[Oracle APEX and ORDS deployments automation](https://dsavenko.me/apex-and-ords-deployments-automation/)
-
----
-
-<!-- .slide: data-background-image="./assets/nick-de-partee-97063-unsplash.jpg" -->
+<!-- .slide: data-background-image="/assets/images/nick-de-partee-97063-unsplash.jpg" -->
 
 # The End
 
