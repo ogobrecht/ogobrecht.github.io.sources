@@ -11,8 +11,10 @@ Nürnberg, 19. November 2019
 ## Was Euch erwartet
 - Motivation: DevOps, der erste Schritt
 - Toolvergleich: Export Schema DDL
-- Skripte & Wiederanlauffähigkeit
-- Mehr Tools: Quellcode-Verwaltung, Editor
+- Repositoryaufbau: Tool PLEX
+- DDL: Skripte & Wiederanlauffähigkeit
+- Mehr Tools: Git-Client, Editor, Liquibase
+- Fazit & nächste Schritte
 
 ---
 
@@ -61,7 +63,7 @@ Leistungsstarke gegenüber leistungsschwachen Unternehmen laut [State of DevOps 
 
 ---
 
-## Bullshit, oder?
+## Kann man das glauben?
 
 Buchtip: [Das Mindset von DevOps - Accelerate](https://www.heise.de/developer/artikel/Das-Mindset-von-DevOps-Accelerate-4495067.html)
 
@@ -103,7 +105,7 @@ Die ersten Schritte
 Kapitel 11: Führungskräfte und Manager,<br>
 Transformationale Führung
 
-> Ermutigen Sie Ihre Belegschaft, mindestens einmal im Jahr technische Konferenzen zu besuchen und das dort Gelernte für das gesamte Team zusammenzufassen.
+> „Ermutigen Sie Ihre Belegschaft, mindestens einmal im Jahr technische Konferenzen zu besuchen und das dort Gelernte für das gesamte Team zusammenzufassen.“
 
 ---
 
@@ -219,17 +221,8 @@ Anmerkungen:
 ## Anmerkungen PLEX
 - Ist ein Package (<span style="color:red;">PL</span>/SQL <span style="color:red;">Ex</span>port Utilities)
 - Ausgabeverzeichnisstruktur anpassbar
+- APEX App zerlegt<br>(Änderungen im VCS nachvollziehbar)
 - [Projekt auf GitHub](https://github.com/ogobrecht/plex)
-
----
-
-## Git versus SVN
-- Git ist schneller
-- SVN braucht weniger Platz
-- Git funktioniert offline
-- SVN Rechteverwaltung ist flexibler
-- Entscheidungshilfe: [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
-- Tipp Windows Server: [Git](https://gitea.io/), [SVN](https://www.visualsvn.com/server/)
 
 ---
 
@@ -292,7 +285,13 @@ Anmerkungen:
 
 ---
 
-## Zur Erinnerung: Unser Ziel
+## Frontend zerlegt
+
+![App Frontend](/assets/images/neues-bild-aussuchen.jpg)
+
+---
+
+## Kopierte Templates
 
 ![App Frontend](./assets/scripts.png)
 
@@ -301,6 +300,12 @@ Anmerkungen:
 ## Skripte anpassen bei Verwendung
 
 ![App Frontend](./assets/scripts_custom.png)
+
+---
+
+## Deployment Script Beispiel
+
+![App Frontend](/assets/images/neues-bild-aussuchen.jpg)
 
 ---
 
@@ -314,8 +319,6 @@ Anmerkungen:
 
 ## Anpassen File Collection
 
-Initialisierung und Schleife
-
 ```sql
 DECLARE
   l_files apex_t_export_files;
@@ -323,36 +326,11 @@ BEGIN
   l_files := plex.backapp(p_app_id => 100);
 
   FOR i IN 1..l_files.count LOOP
-  -- next slide: inside the loop
+    l_files(i).name := /*your code here*/;
+    l_files(i).contents := /*your code here*/;
   END LOOP;
 END;
 ```
-
----
-
-## Anpassen File Collection
-
-Innerhalb der Schleife
-
-```sql
--- relocate APEX app files from app_frontend to app_ui
-IF l_files(i).name LIKE 'app_frontend/%' THEN
-  l_files(i).name := replace(l_files(i).name,
-                             'app_frontend/',
-                             'app_ui/');
-  l_files(i).contents := replace(l_files(i).contents, 
-                                 'prompt --app_frontend/', 
-                                 'prompt --app_ui/');
-END IF;
--- correct file links in install script
-IF l_files(i).name = 'scripts/install_frontend_generated_by_apex.sql' 
-  THEN l_files(i).contents := replace(l_files(i).contents, 
-                                      '@../app_frontend/', 
-                                      '@../app_ui/');
-END IF;
-```
-
-<small>Für das Gezeigte gibt es mittlerweile Parameter in PLEX</small>
 
 ---
 
@@ -452,6 +430,16 @@ App Export/Import
 
 ---
 
+## Git versus SVN
+- Git ist schneller
+- SVN braucht weniger Platz
+- Git funktioniert offline
+- SVN Rechteverwaltung ist flexibler
+- Entscheidungshilfe: [Artikel zum Thema](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
+- Tipp Windows Server: [Git](https://gitea.io/), [SVN](https://www.visualsvn.com/server/)
+
+---
+
 ## GitHub Desktop
 - Multi-Plattform (Linux in Arbeit)
 - Reduziert auf das Wesentliche
@@ -478,9 +466,22 @@ App Export/Import
 
 ---
 
-## VS Code
+## Visual Studio Code
 
 ![Screenshot VS Code](./assets/vs-code.png)
+
+---
+
+## SQLcl
+
+- APEX App Export
+- Neu in 19.2: Liquibase
+
+---
+
+## Liquibase Examples
+
+### FIXME
 
 ---
 
@@ -501,10 +502,11 @@ App Export/Import
 - Dateibasiertes Arbeiten
 - Immer Skripte
 - Wiederanlauffähigkeit
+- Deployment-Vorlagen
 
 ---
 
-## Das war nur der Anfang
+## Die Reise hat begonnen
 
 Nächste Schritte
 
@@ -528,8 +530,20 @@ Versionskontrolle nach DevOps meint<br>
 - Systemkonfigurationen
 - ...
 
-Kurz: Infrastruktur als Code
+Kurz: Infrastruktur als Code<!-- .element: class="fragment"-->
 
+<small>Übrigens: Diese Folien sind auch Code - geschrieben in Markdown</small><!-- .element: class="fragment"-->
+
+---
+
+## Überspitzt formuliert
+
+In einem Reifegradmodell wären wir jetzt fertig.
+
+- Wir nutzen Versionskontrolle
+- Fein, abgehakt, erledigt
+
+In einem Kompetenzmodell schauen wir, was wir noch verbessern können und lernen ständig hinzu...
 
 ---
 
