@@ -40,6 +40,12 @@ Nürnberg, 19. November 2019
 
 ---
 
+## Tweet vom 7. Oktober 2019
+
+![App Frontend](./assets/peter-raganitsch-on-source-control.png)
+
+---
+
 ## Motivation - Intern
 - Viele Projekte
 - Unterschiedliche Versionskontrolle
@@ -109,16 +115,29 @@ Transformationale Führung
 
 ---
 
-## Unser Ziel: Schnellstart
+## Unser Ziel - Schnellstart VCS
 
 Export "all in one" für Versionskontrolle
 
-- Frontend (APEX App)
+- Frontend (APEX App, zerlegt)
 - Backend (Schema DDL)
 - Daten (Katalogdaten)
-- Skript Templates
+- Deployment Templates
 - Wiederanlauffähigkeit
 - Übersichtliche Dateistruktur
+
+---
+
+## Unser Ziel - Deployment Templements
+
+- Jeweils EIN SQL-Skript
+  - Export App
+  - Install App
+- Je Zielsystem ein Shell-Wrapper
+  - DEV
+  - INT
+  - PROD
+- Log für alle Schritte
 
 ---
 
