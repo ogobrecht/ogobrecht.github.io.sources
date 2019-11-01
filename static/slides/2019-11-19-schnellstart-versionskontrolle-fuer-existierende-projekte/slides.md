@@ -108,16 +108,15 @@ Die ersten Schritte
 
 ## Kulturelle Kompetenzen - Beispiel ;-)
 
-Kapitel 11: Führungskräfte und Manager,<br>
-Transformationale Führung
-
 > „Ermutigen Sie Ihre Belegschaft, mindestens einmal im Jahr technische Konferenzen zu besuchen und das dort Gelernte für das gesamte Team zusammenzufassen.“
+
+<small>Kapitel 11: Führungskräfte und Manager, Transformationale Führung</small>
 
 ---
 
 ## Unser Ziel - Schnellstart VCS
 
-Export "all in one" für Versionskontrolle
+Export „all in one“ für Versionskontrolle
 
 - Frontend (APEX App, zerlegt)
 - Backend (Schema DDL)
@@ -155,7 +154,7 @@ Anmerkungen:
 
 <!-- .slide: data-background-image="/assets/images/michael-d-beckwith-575798-unsplash.jpg" -->
 
-> “There is no clean (database) development without Version Control”
+> „There is no clean (database) development without Version Control“
 >
 > Samuel Nitsche ([Blog Post](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/))
 
@@ -340,7 +339,7 @@ Anmerkungen:
 
 ```sql
 DECLARE
-  l_files apex_t_export_files;
+  l_files plex.tab_export_files;
 BEGIN
   l_files := plex.backapp(p_app_id => 100);
 
@@ -418,7 +417,7 @@ Jede Änderung ist eine Migration
 - Kein manueller App Export/Import
 - Alle Skripte wiederanlauffähig
 - Gesamtablauf getestet
-- Reduzierte "Deployment Pain"
+- Reduzierte „Deployment Pain“
 
 ---
 
@@ -541,7 +540,7 @@ Nächste Schritte
 ## Obwohl...
 
 Versionskontrolle nach DevOps meint<br>
-"Alle Produktionsartefakte"
+„Alle Produktionsartefakte“
 
 - ~~Anwendungscode~~
 - Anwendungskonfigurationen
