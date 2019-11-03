@@ -3,8 +3,9 @@
 # Schnellstart
 ## Versionskontrolle für existierende Projekte
 Ottmar Gobrecht<br>
-DOAG Konferenz<br>
-Nürnberg, 19. November 2019
+DOAG Konferenz Nürnberg, 19. November 2019
+
+Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
 
 ---
 
@@ -598,7 +599,9 @@ In einem Kompetenzmodell schauen wir, was wir noch verbessern können und lernen
 
 ## Fragen?
 
-[ogobrecht.github.io](https://ogobrecht.github.io)
+&nbsp;
+
+Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
 
 [Hintergrundfotos von unsplash.com](https://unsplash.com/collections/4373998)
 
