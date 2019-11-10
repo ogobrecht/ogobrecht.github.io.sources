@@ -84,7 +84,7 @@ Verbesserungen kontinuierlich vorantreiben.</small>
 
 ---
 
-## Die Kategorien
+## Die Kompetenz-Kategorien
 
 1. Continuous Delivery
 2. Architektur
@@ -167,7 +167,7 @@ Anmerkungen:
 
 ---
 
-## Tool-Vergleich DDL Export
+## DDL Export: Tool-Vergleich
 - Aufruf Funktionalität
 - Eine Skript-Datei pro Objekt?
 - Unterverzeichnisse pro Objekttyp?
@@ -259,7 +259,7 @@ Anmerkungen:
 
 ## Ausgangsbasis: Sample DB App
 
-![App Frontend](./assets/plex_backapp_1.png)
+![](./assets/plex_backapp_sample_db_app.png)
 
 ---
 
@@ -292,39 +292,81 @@ Anmerkungen:
 
 ---
 
+## Demo
+
+Create Repo & Export App
+
+---
+
 ## Speichern als ZIP
 
-![App Frontend](./assets/plex_backapp_2.png)
+![](./assets/plex_backapp_save_to_zip.png)
 
 ---
 
 ## Das entpackte ZIP File
 
-![App Frontend](./assets/plex_backapp_3.png)
+![](./assets/plex_backapp_unzip.png)
+
+---
+
+## Backend
+
+![](./assets/plex_backapp_backend.png)
+
+---
+
+## Katalogdaten
+
+![](./assets/plex_backapp_catalog_data.png)
 
 ---
 
 ## Frontend zerlegt
 
-![App Frontend](/assets/images/neues-bild-aussuchen.jpg)
+![](./assets/plex_backapp_frontend.png)
 
 ---
 
-## Kopierte Templates
+## Backend Master Script
 
-![App Frontend](./assets/scripts.png)
-
----
-
-## Skripte anpassen bei Verwendung
-
-![App Frontend](./assets/scripts_custom.png)
+![](./assets/plex_backapp_backend_master_script.png)
 
 ---
 
-## Deployment Script Beispiel
+## Frontend Master Script
 
-![App Frontend](/assets/images/neues-bild-aussuchen.jpg)
+![](./assets/plex_backapp_frontend_master_script.png)
+
+---
+
+## Deployment Templates
+
+![](./assets/plex_backapp_templates.png)
+
+---
+
+## Templates Kopiert & Angepasst
+
+![](./assets/plex_backapp_export_dev.png)
+
+---
+
+## Zukünftige Exporte Konfigurieren
+
+![](./assets/plex_backapp_export_custom.png)
+
+---
+
+## Deployment Master Script 1/2
+
+![](./assets/plex_backapp_install_custom_1.png)
+
+---
+
+## Deployment Master Script 2/2
+
+![](./assets/plex_backapp_install_custom_2.png)
 
 ---
 
@@ -374,15 +416,15 @@ Von DEV über INT nach PROD
 - Keine Änderungen über Klickibunti-Tools
 - Alle Änderungen per Skript
 - Nur noch deklarativen Code exportieren
-  - ORDS-REST-Services
   - APEX-Frontend
+  - ORDS-REST-Services
   - ...
 
 ---
 
 ## Wiederanlauffähigkeit
 
-![App Backend](./assets/app_backend.png)
+![](./assets/app_backend_restartable.png)
 
 ---
 
@@ -424,7 +466,7 @@ Jede Änderung ist eine Migration
 
 ## Demo 
 
-App Export/Import
+APEX Export & Deployment
 
 ---
 
@@ -488,19 +530,6 @@ App Export/Import
 ## Visual Studio Code
 
 ![Screenshot VS Code](./assets/vs-code.png)
-
----
-
-## SQLcl
-
-- APEX App Export
-- Neu in 19.2: Liquibase
-
----
-
-## Liquibase Examples
-
-### FIXME
 
 ---
 
