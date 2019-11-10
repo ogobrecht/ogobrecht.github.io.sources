@@ -37,7 +37,6 @@ var dummy = 123;
 <figcaption>Some description with a <a href="https://github.com">link to GitHub</a> in Markdown style and "escaped quote signs"</figcaption>
 </figure>
 
----
 
 ## Quotes
 
@@ -48,3 +47,8 @@ From here: https://www.quora.com/How-do-I-use-German-quotation-marks-on-a-U-S-in
 > “english”
 
 Angle quotes are rarely used in standard German, but if you must, make sure they point inwards: »hallo« – unlike in French, where they point outwards: «bonjour».
+
+
+## Reveal.js
+
+If you want to print a PDF version of the slides you need to append `?print-pdf` to the URL in the browser.

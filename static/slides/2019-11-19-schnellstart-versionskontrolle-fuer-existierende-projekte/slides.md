@@ -633,4 +633,3 @@ In einem Kompetenzmodell schauen wir, was wir noch verbessern können und lernen
 Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
 
 [Hintergrundfotos von unsplash.com](https://unsplash.com/collections/4373998)
-
