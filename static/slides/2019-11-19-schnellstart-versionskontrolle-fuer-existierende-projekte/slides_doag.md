@@ -1,11 +1,11 @@
-<!-- .slide: data-background-image="/assets/images/braden-collum-87874-unsplash.jpg" -->
+Diese PDF-Vorabversion meiner Folien verzichtet auf Hintergrundbilder zugunsten schnellerer Downloads. Die endgültige HTML-Version wird ab 19. November 2019 online unter folgendem Link verfügbar sein: [ogobrecht.github.io/posts/2019-11-19-doag-konferenz](https://ogobrecht.github.io/posts/2019-11-19-doag-konferenz/)
+
+---
 
 # Schnellstart
 ## Versionskontrolle für existierende Projekte
 Ottmar Gobrecht<br>
 DOAG Konferenz Nürnberg, 19. November 2019
-
-Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
 
 ---
 
@@ -35,7 +35,7 @@ Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" -->
+
 
 # Motivation
 
@@ -153,7 +153,7 @@ Anmerkungen:
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/michael-d-beckwith-575798-unsplash.jpg" -->
+
 
 > „There is no clean (database) development without Version Control“
 >
@@ -161,7 +161,7 @@ Anmerkungen:
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/clark-young-135435-unsplash.jpg" -->
+
 
 # Tools
 
@@ -245,13 +245,13 @@ Anmerkungen:
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/camylla-battani-784361-unsplash.jpg" -->
+
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/gabriel-gabriel-wVB8tH5_L9s-unsplash.jpg" -->
+
 
 # PLEX
 
@@ -395,20 +395,16 @@ END;
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/kevin-grieve-660962-unsplash.jpg" -->
+
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/andrea-cappiello-770323-unsplash.jpg" -->
+
 
 # DDL
-## <span style="color:red;">D</span>urch <span style="color:red;">d</span>ie <span style="color:red;">L</span>andschaft ;-)
-<!-- .element: class="fragment"-->
 
-Von DEV über INT nach PROD
-<!-- .element: class="fragment"-->
 
 ---
 
@@ -464,13 +460,13 @@ Jede Änderung ist eine Migration
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/kawtar-cherkaoui-125346-unsplash.jpg" -->
+
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/james-thomas-125093-unsplash.jpg" -->
+
 
 # Geschwindigkeit
 
@@ -500,13 +496,13 @@ APEX Export & Deployment
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/wayne-bishop-5737-unsplash.jpg" -->
+
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/ricky-kharawala-308072-unsplash.jpg" -->
+
 
 # Mehr Tools
 
@@ -564,13 +560,13 @@ APEX Export & Deployment
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/alexander-andrews-511680-unsplash.jpg" -->
+
 
 ## Fragen?
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/matt-lamers-683008-unsplash.jpg" -->
+
 
 # Fazit
 
@@ -658,14 +654,9 @@ In einem Kompetenzmodell schauen wir, was wir noch verbessern können und lernen
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/nick-de-partee-97063-unsplash.jpg" -->
+
 
 # The End
 
 ## Fragen?
 
-&nbsp;
-
-Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
-
-[Hintergrundfotos von unsplash.com](https://unsplash.com/collections/4373998)
