@@ -1,13 +1,11 @@
-
 <!-- .slide: data-background-image="/assets/images/braden-collum-87874-unsplash.jpg" -->
 
 # Schnellstart
 ## Versionskontrolle für existierende Oracle Projekte
+Ottmar Gobrecht<br>
+DOAG Konferenz Nürnberg, 19. November 2019
 
-Ottmar Gobrecht &nbsp;&nbsp;&nbsp;[@ogobrecht](https://twitter.com/ogobrecht)
-
-DOAG Konferenz Nürnberg<br>
-<span>19. November 2019</span>
+Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
 
 ---
 
@@ -41,9 +39,7 @@ DOAG Konferenz Nürnberg<br>
 
 ---
 
-<!-- .slide: data-background-image="/assets/images/stephen-radford-hLUTRzcVkqg-unsplash.jpg" -->
-
-## Deployment Pain?!?
+# Deployment Pain?!?
 
 ---
 
@@ -74,7 +70,7 @@ Export „all in one“ für Versionskontrolle
 
 ![Angestrebte Verzeichnisstruktur](./assets/repo_verzeichnisstruktur.png)
 
-<small>Kurze Wege, alle Skripte vereint, übersichtlich</small>
+<small>Kurze Wege, alle Skripte vereint</small>
 
 -----
 
@@ -110,12 +106,19 @@ Export „all in one“ für Versionskontrolle
 
 ---
 
-## Anmerkungen PLEX
-- Ist ein Package (<span style="color:red;">PL</span>/SQL <span style="color:red;">Ex</span>port Utilities)
-- Ausgabeverzeichnisstruktur anpassbar
-- APEX App zerlegt<br>(Änderungen im VCS nachvollziehbar)
-- [Projekt auf GitHub](https://github.com/ogobrecht/plex)
-- Wenig Nacharbeit erforderlich
+## Anmerkungen SQL Developer
+- Ist am übersichtlichsten
+- Viele Formate für Datenexport (auch CSV)
+- Umfangreich konfigurierbar
+- Blain Carter: [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
+- Nacharbeit erforderlich
+
+---
+
+## Anmerkungen PL/SQL Developer
+- Wenig konfigurierbar
+- Enttäuscht für Aufbau Quellcode-Repos
+- Viel Nacharbeit erforderlich
 
 ---
 
@@ -129,19 +132,12 @@ Export „all in one“ für Versionskontrolle
 
 ---
 
-## Anmerkungen PL/SQL Developer
-- Wenig konfigurierbar
-- Enttäuscht für Aufbau Quellcode-Repos
-- Viel Nacharbeit erforderlich
-
----
-
-## Anmerkungen SQL Developer
-- Ist am übersichtlichsten
-- Viele Formate für Datenexport (auch CSV)
-- Umfangreich konfigurierbar
-- Blain Carter: [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
-- Nacharbeit erforderlich
+## Anmerkungen PLEX
+- Ist ein Package (<span style="color:red;">PL</span>/SQL <span style="color:red;">Ex</span>port Utilities)
+- Ausgabeverzeichnisstruktur anpassbar
+- APEX App zerlegt<br>(Änderungen im VCS nachvollziehbar)
+- [Projekt auf GitHub](https://github.com/ogobrecht/plex)
+- Wenig Nacharbeit erforderlich
 
 ---
 
@@ -282,12 +278,12 @@ Von DEV über INT nach PROD
 ---
 
 ## Ab hier dateibasiertes Arbeiten
-- Keine Änderungen über Klickibunti-Tools<!-- .element: class="fragment"-->
-- Alle Änderungen per Skript<!-- .element: class="fragment"-->
-- Nur noch deklarativen Code exportieren<!-- .element: class="fragment"-->
-  - APEX-Frontend<!-- .element: class="fragment"-->
-  - ORDS-REST-Services<!-- .element: class="fragment"-->
-  - ...<!-- .element: class="fragment"-->
+- Keine Änderungen über Klickibunti-Tools
+- Alle Änderungen per Skript
+- Nur noch deklarativen Code exportieren
+  - APEX-Frontend
+  - ORDS-REST-Services
+  - ...
 
 ---
 
@@ -299,14 +295,16 @@ Von DEV über INT nach PROD
 
 ## Die Idee hinter der Skripterei
 
-- Agile DB-Entwicklung<!-- .element: class="fragment"-->
-- Jede Änderung ist eine Migration<!-- .element: class="fragment"-->
-  - [Wikipedia: Schema migration](https://en.wikipedia.org/wiki/Schema_migration)
-  - [Artikel Samuel Nitsche](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
-  - [Artikel Martin Fowler](https://www.martinfowler.com/articles/evodb.html)
+Agile DB-Entwicklung
+
+Jede Änderung ist eine Migration
+
+- [Wikipedia: Schema migration](https://en.wikipedia.org/wiki/Schema_migration)
+- [Artikel Samuel Nitsche](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
+- [Artikel Martin Fowler](https://www.martinfowler.com/articles/evodb.html)
 
 
-<small>Unser Ansatz ist nur eine mögliche Ausprägung der Idee</small><!-- .element: class="fragment"-->
+<small>Unser Ansatz ist nur eine mögliche Ausprägung der Idee</small>
 
 ---
 
@@ -323,11 +321,11 @@ Von DEV über INT nach PROD
 ---
 
 ## Mehrarbeit, die sich auszahlt
-- Nur Skripte<!-- .element: class="fragment"-->
-- Kein manueller App Export/Import<!-- .element: class="fragment"-->
-- Alle Skripte wiederanlauffähig<!-- .element: class="fragment"-->
-- Gesamtablauf getestet<!-- .element: class="fragment"-->
-- Reduzierte „Deployment Pain“<!-- .element: class="fragment"-->
+- Nur Skripte
+- Kein manueller App Export/Import
+- Alle Skripte wiederanlauffähig
+- Gesamtablauf getestet
+- Reduzierte „Deployment Pain“
 
 ---
 
@@ -338,11 +336,11 @@ APEX Export & Deployment
 ---
 
 ## Apropos Deployment Pain
-- Jede Umgebung ist individuell<!-- .element: class="fragment"-->
-- Mit den Skripten anfangen<!-- .element: class="fragment"-->
-- Kleine Schritte<!-- .element: class="fragment"-->
-- Immer besser werden<!-- .element: class="fragment"-->
-- Nicht stehenbleiben<!-- .element: class="fragment"-->
+- Jede Umgebung ist individuell
+- Mit den Skripten anfangen
+- Kleine Schritte
+- Immer besser werden
+- Nicht stehenbleiben
 
 ---
 
