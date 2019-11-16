@@ -1,5 +1,6 @@
+Diese PDF-Vorabversion meiner Folien verzichtet auf Hintergrundbilder zugunsten schnellerer Downloads. Die endgültige HTML-Version wird ab 19. November 2019 online unter folgendem Link verfügbar sein: [ogobrecht.github.io/posts/2019-11-19-doag-konferenz](https://ogobrecht.github.io/posts/2019-11-19-doag-konferenz/)
 
-<!-- .slide: data-background-image="/assets/images/braden-collum-87874-unsplash.jpg" -->
+-----
 
 # Schnellstart
 ## Versionskontrolle für existierende Oracle Projekte
@@ -17,31 +18,17 @@ DOAG Konferenz Nürnberg<br>
 - Individualsoftware für Fachbereiche
 - Aktiv im [Open Source Bereich](https://github.com/ogobrecht)
 
----
-
-## Zu Eurer Person
-- Wer nutzt Versionskontrolle?<!-- .element: class="fragment"-->
-- Wer nutzt Git? SVN? Etwas anderes?<!-- .element: class="fragment"-->
-- Wer verskriptet seine Releases?<!-- .element: class="fragment"-->
-- Wer hat CI/CD implementiert?<!-- .element: class="fragment"-->
-
 -----
-
-<!-- .slide: data-background-image="/assets/images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg" -->
 
 # Motivation
 
 ---
-
-<!-- .slide: data-background-image="/assets/images/michael-d-beckwith-575798-unsplash.jpg" -->
 
 > „There is no clean (database) development without Version Control“
 >
 > Samuel Nitsche ([Blog Post](https://cleandatabase.wordpress.com/2017/09/22/there-is-no-clean-database-development-without-version-control/))
 
 ---
-
-<!-- .slide: data-background-image="/assets/images/stephen-radford-hLUTRzcVkqg-unsplash.jpg" -->
 
 ## Deployment Pain?!?
 
@@ -66,8 +53,6 @@ Export „all in one“ für Versionskontrolle
 - Wiederanlauffähigkeit<!-- .element: class="fragment"-->
 - Übersichtliche Dateistruktur<!-- .element: class="fragment"-->
 
-
-
 ---
 
 ## Gewünschte Verzeichnisstruktur
@@ -78,15 +63,13 @@ Export „all in one“ für Versionskontrolle
 
 -----
 
-<!-- .slide: data-background-image="/assets/images/clark-young-135435-unsplash.jpg" -->
-
 # Tools
 
 ---
 
 ## Tool-Vergleich DDL Export - Kriterien
 
-**Tools: SQL Dev, PL/SQL Dev, Toad, PLEX**<!-- .element: class="fragment"--><b style="color:red;">?!?</b><!-- .element: class="fragment"-->
+**Tools: SQL Dev, PL/SQL Dev, Toad, PLEX**<!-- .element: class="fragment"-->
 
 - Eine Skript-Datei pro Objekt?<!-- .element: class="fragment"-->
 - Unterverzeichnisse pro Objekttyp?<!-- .element: class="fragment"-->
@@ -143,15 +126,7 @@ Export „all in one“ für Versionskontrolle
 - Blain Carter: [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
 - Nacharbeit erforderlich
 
----
-
-<!-- .slide: data-background-image="/assets/images/camylla-battani-784361-unsplash.jpg" -->
-
-## Fragen?
-
 -----
-
-<!-- .slide: data-background-image="/assets/images/gabriel-gabriel-wVB8tH5_L9s-unsplash.jpg" -->
 
 # PLEX
 
@@ -262,22 +237,9 @@ Create Repo & Export App
 
 ![](./assets/plex_backapp_install_custom_2.png)
 
----
-
-<!-- .slide: data-background-image="/assets/images/kevin-grieve-660962-unsplash.jpg" -->
-
-## Fragen?
-
 -----
 
-<!-- .slide: data-background-image="/assets/images/andrea-cappiello-770323-unsplash.jpg" -->
-
 # DDL
-## <span style="color:red;">D</span>urch <span style="color:red;">d</span>ie <span style="color:red;">L</span>andschaft ;-)
-<!-- .element: class="fragment"-->
-
-Von DEV über INT nach PROD
-<!-- .element: class="fragment"-->
 
 ---
 
@@ -305,18 +267,9 @@ Von DEV über INT nach PROD
   - [Artikel Samuel Nitsche](https://cleandatabase.wordpress.com/2017/11/28/one-does-not-simply-update-a-database-migration-based-database-development/)
   - [Artikel Martin Fowler](https://www.martinfowler.com/articles/evodb.html)
 
-
 <small>Unser Ansatz ist nur eine mögliche Ausprägung der Idee</small><!-- .element: class="fragment"-->
 
----
-
-<!-- .slide: data-background-image="/assets/images/kawtar-cherkaoui-125346-unsplash.jpg" -->
-
-## Fragen?
-
 -----
-
-<!-- .slide: data-background-image="/assets/images/james-thomas-125093-unsplash.jpg" -->
 
 # Geschwindigkeit
 
@@ -344,15 +297,7 @@ APEX Export & Deployment
 - Immer besser werden<!-- .element: class="fragment"-->
 - Nicht stehenbleiben<!-- .element: class="fragment"-->
 
----
-
-<!-- .slide: data-background-image="/assets/images/wayne-bishop-5737-unsplash.jpg" -->
-
-## Fragen?
-
 -----
-
-<!-- .slide: data-background-image="/assets/images/ricky-kharawala-308072-unsplash.jpg" -->
 
 # Mehr Tools
 
@@ -408,15 +353,7 @@ APEX Export & Deployment
 - Jeff Smith: [Liquibase and SQLcl](https://www.thatjeffsmith.com/archive/2019/09/liquibase-and-sqlcl/)
 - [www.liquibase.org](https://www.liquibase.org/)
 
----
-
-<!-- .slide: data-background-image="/assets/images/alexander-andrews-511680-unsplash.jpg" -->
-
-## Fragen?
-
 -----
-
-<!-- .slide: data-background-image="/assets/images/matt-lamers-683008-unsplash.jpg" -->
 
 # Fazit
 
@@ -472,20 +409,9 @@ Versionskontrolle nach DevOps meint<br>
 - Antti Kirmanen: [Git vs. Subversion (SVN): Welches Versionskontrollsystem sollten Sie nutzen?](https://entwickler.de/online/development/git-subversion-svn-versionskontrollsystem-579792227.html)
 - Morten Braten: [Using VS Code for PL/SQL development](https://ora-00001.blogspot.com/2017/03/using-vs-code-for-plsql-development.html)
 
-
 ---
 
-<!-- .slide: data-background-image="/assets/images/nick-de-partee-97063-unsplash.jpg" -->
-
 # The End
-
-## Fragen?
-
-&nbsp;
-
-Folien: [ogobrecht.github.io](https://ogobrecht.github.io)
-
-[Hintergrundfotos von unsplash.com](https://unsplash.com/collections/4373998)
 
 -----
 
@@ -553,4 +479,3 @@ Die ersten Schritte
 - Buchtip Heise Developer: [Das Mindset von DevOps - Accelerate - 24 Schlüsselkompetenzen, um leistungsstarke Technologieunternehmen zu entwickeln und zu skalieren](https://www.heise.de/developer/artikel/Das-Mindset-von-DevOps-Accelerate-4495067.html)
 - Gareth Rushgrove: [Macht DevOps Unternehmen erfolgreicher?](https://www.silicon.de/41661475/macht-devops-unternehmen-erfolgreicher)
 - Puppet: State of DevOps Report [2017](https://puppet.com/resources/whitepaper/2017-state-of-devops-report), [2018](https://puppet.com/resources/whitepaper/2018-state-of-devops-report), [2019](https://puppet.com/resources/whitepaper/state-of-devops-report)
-
