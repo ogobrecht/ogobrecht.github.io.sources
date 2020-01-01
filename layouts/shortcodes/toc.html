@@ -1,6 +1,2 @@
 {{ with .Get 0 }}<h2>{{ . }}</h2>{{ end }}
 {{ .Page.TableOfContents }}
-{{/*
-Also see layouts/_default/single.html line 10 with fix for
-corrupted Blackfriday rendered ToC: `.Content | replaceRE ...` 
-*/}}
