@@ -245,6 +245,6 @@ There are better ways then to ask for a password at runtime - but that is not th
 
 Hope this helps someone.
 
-Happy exporting :-)  
+Happy exporting :-)<br>
 Ottmar
 

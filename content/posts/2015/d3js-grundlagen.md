@@ -421,7 +421,7 @@ Wer keine Lust auf selber machen hat: [nvd3.org][14], [c3js.org][15] (Abstraktio
 [15]: http://c3js.org/
 [16]: https://apex.world/ords/f?p=100:700
 
-Happy coding :-)  
+Happy coding :-)<br>
 Ottmar
 
 <link  href="/assets/d3.js/d3-force-3.0.0.css" rel="stylesheet" type="text/css">

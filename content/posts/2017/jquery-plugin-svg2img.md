@@ -54,7 +54,7 @@ I stopped to support other image formats then SVG since the canvas export behind
 
 The project is hosted on [GitHub][3] and MIT licensed.
 
-Happy SVG exporting :-)  
+Happy SVG exporting :-)<br>
 Ottmar
 
 [1]: https://chrome.google.com/webstore/detail/export-svg-with-style/dkjdcaddoplepioppogpckelchefhddi

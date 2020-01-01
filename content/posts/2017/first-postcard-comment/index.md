@@ -16,7 +16,7 @@ But just before Christmas the first postcard arrived. [Oliver Gorwits][1] from t
 
 I asked him if I am allowed to publish a picture of his postcard - for Oliver it is ok. I can only show you the back side because of copyright reasons - if you are interested in how the front side looks like, do a short internet search for `'Queen Elizabeth II of the United Kingdom', Andy Warhol, 1985` or use this [Google image link][4].
 
-Happy new year to all :-)  
+Happy new year to all :-)<br>
 Ottmar
 
 [1]: https://github.com/ollyg

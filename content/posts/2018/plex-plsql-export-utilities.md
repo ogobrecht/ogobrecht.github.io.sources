@@ -1,10 +1,10 @@
 ---
 title: PLEX - PL/SQL Export Utilities
-description: Export Oracle APEX app, all schema objects and table data in one go
+description: Export Oracle APEX app, ORDS modules, all schema objects and table data in one go
 tags: [project, oracle, apex, plsql, version-control]
 lang: en
 publishdate: 2018-08-26
-lastmod: 2019-06-26 21:49:00
+lastmod: 2020-01-01 20:15:00
 ---
 
 > UPDATE 2019-06-26 regarding PLEX v2.0.0: PLEX can now be installed and used without an APEX installation. However, to export an APEX app you need APEX 5.1.4 or higher installed on your system. Without APEX your PLEX package has no options for an app export because of conditional compilation. You are still able to export your schema DDL and table data. Hope this helps some folks out there -- Ottmar
@@ -12,6 +12,7 @@ lastmod: 2019-06-26 21:49:00
 PLEX is a standalone PL/SQL package with export utilities. It was created to be able to quickstart version control for existing (APEX) apps. It currently has two main functions called __BackApp__ and __Queries_to_CSV__. Queries_to_CSV is used by BackApp as a helper function, but its functionality is also useful as a standalone. This post is all about BackApp, which has the following features:
 
 - Export the app definition of an APEX app (splitted files and optional single SQL file)
+- Export all ORDS modules from the current schema
 - Export all object DDL from the current schema
 - Export table data into CSV files
 - Provide basic script templates for export/import of whole app for DEV, TEST and PROD 
@@ -45,10 +46,12 @@ Save the resulting BLOB file under a name with the extension `.zip` and extract 
   - tables
   - ref_constraints
   - ...
+- app_data (only, when p_include_data is set to true)
 - app_frontend (for the apex app files without subfolder fxxx)
   - pages
   - shared_components
   - ...
+- app_web_services (only, when p_include_ords_modules is set to true)
 - docs
 - scripts
   - logs
@@ -60,14 +63,13 @@ Save the resulting BLOB file under a name with the extension `.zip` and extract 
     - install_app_custom_code.sql
   - install_backend_generated_by_plex.sql
   - install_frontend_generated_by_apex.sql
+  - install_web_services_generated_by_ords.sql
 - tests
 - plex_README.md
-- plex_backapp_log.md
+- plex_runtime_log.md
 ```
 
 If you like, you can fully configure your first export into the zip file. The `PLEX.BackApp` method has boolean parameters, so you need to use an inline function in a pure SQL context. You can also use an anonymous PL/SQL block or you create a small SQL wrapper for the method like the inline function of the example. All parameters are optional and listed here with their default values:
-
-> UPDATE 2018-09-24 regarding PLEX v1.1.0: `p_object_filter_regex` is replaced by `p_object_name_like` and `p_object_name_not_like`. `p_data_table_filter_regex` is replaced by `p_data_table_name_like` and `p_data_table_name_not_like`. All new parameters expect a comma separated list of (not) like expressions. Please see examples in parameter comments below -- Ottmar
 
 ```sql
 -- Inline function because of boolean parameters (needs Oracle 12c or higher).
@@ -77,39 +79,43 @@ WITH
   BEGIN
     RETURN plex.to_zip(plex.backapp(
       -- All parameters are optional and shown with their defaults
-      -- App related options (only available, when APEX is installed):
-      p_app_id                    => NULL,  -- If null, we simply skip the APEX app export.   
-      p_app_date                  => true,  -- If true, include export date and time in the result.
-      p_app_public_reports        => true,  -- If true, include public reports that a user saved.
-      p_app_private_reports       => false, -- If true, include private reports that a user saved.
-      p_app_notifications         => false, -- If true, include report notifications.
-      p_app_translations          => true,  -- If true, include application translation mappings and all text from the translation repository.
-      p_app_pkg_app_mapping       => false, -- If true, export installed packaged applications with references to the packaged application definition. If FALSE, export them as normal applications.
-      p_app_original_ids          => false, -- If true, export with the IDs as they were when the application was imported.
-      p_app_subscriptions         => true,  -- If true, components contain subscription references.
-      p_app_comments              => true,  -- If true, include developer comments.
-      p_app_supporting_objects    => NULL,  -- If 'Y', export supporting objects. If 'I', automatically install on import. If 'N', do not export supporting objects. If null, the application's include in export deployment value is used.
-      p_app_include_single_file   => false, -- If true, the single sql install file is also included beside the splitted files.
-      p_app_build_status_run_only => false, -- If true, the build status of the app will be overwritten to RUN_ONLY.
-      -- Object related options:
-      p_include_object_ddl        => false, -- If true, include DDL of current user/schema and all its objects.
-      p_object_type_like          => NULL,  -- A comma separated list of like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type like '%BODY' escape '\' or object_type like 'JAVA%' escape '\').
-      p_object_type_not_like      => NULL,  -- A comma separated list of not like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type not like '%BODY' escape '\' and object_type not like 'JAVA%' escape '\').
-      p_object_name_like          => NULL,  -- A comma separated list of like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name like 'EMP%' escape '\' or object_name like 'DEPT%' escape '\').
-      p_object_name_not_like      => NULL,  -- A comma separated list of not like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name not like 'EMP%' escape '\' and object_name not like 'DEPT%' escape '\').
-      -- Data related options:
-      p_include_data              => false, -- If true, include DDL of current user/schema and all its objects.
-      p_data_as_of_minutes_ago    => 0,     -- A comma separated list of like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type like '%BODY' escape '\' or object_type like 'JAVA%' escape '\').
-      p_data_max_rows             => 1000,  -- A comma separated list of not like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type not like '%BODY' escape '\' and object_type not like 'JAVA%' escape '\').
-      p_data_table_name_like      => NULL,  -- A comma separated list of like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name like 'EMP%' escape '\' or object_name like 'DEPT%' escape '\').
-      p_data_table_name_not_like  => NULL,  -- A comma separated list of not like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name not like 'EMP%' escape '\' and object_name not like 'DEPT%' escape '\').
-      -- Miscellaneous options:
-      p_include_templates         => true,  -- If true, include templates for README.md, export and install scripts.
-      p_include_runtime_log       => true,  -- If true, generate file plex_runtime_log.md with detailed runtime infos.
-      p_include_error_log         => true,  -- If true, generate file plex_error_log.md with detailed error messages.
-      p_base_path_backend         => 'app_backend',  -- The base path in the project root for the database DDL files.
-      p_base_path_frontend        => 'app_frontend', -- The base path in the project root for the APEX UI install files.
-      p_base_path_data            => 'app_data'));   -- The base path in the project root for the data files.
+      -- APEX App (only available, when APEX is installed):
+      p_app_id                      => null,  -- If null, we simply skip the APEX app export.
+      p_app_date                    => true,  -- If true, include export date and time in the result.
+      p_app_public_reports          => true,  -- If true, include public reports that a user saved.
+      p_app_private_reports         => false, -- If true, include private reports that a user saved.
+      p_app_notifications           => false, -- If true, include report notifications.
+      p_app_translations            => true,  -- If true, include application translation mappings and all text from the translation repository.
+      p_app_pkg_app_mapping         => false, -- If true, export installed packaged applications with references to the packaged application definition. If FALSE, export them as normal applications.
+      p_app_original_ids            => false, -- If true, export with the IDs as they were when the application was imported.
+      p_app_subscriptions           => true,  -- If true, components contain subscription references.
+      p_app_comments                => true,  -- If true, include developer comments.
+      p_app_supporting_objects      => null,  -- If 'Y', export supporting objects. If 'I', automatically install on import. If 'N', do not export supporting objects. If null, the application's include in export deployment value is used.
+      p_app_include_single_file     => false, -- If true, the single sql install file is also included beside the splitted files.
+      p_app_build_status_run_only   => false, -- If true, the build status of the app will be overwritten to RUN_ONLY.
+      -- ORDS Modules (only available, when ORDS is installed):
+      p_include_ords_modules        => false, -- If true, include ORDS modules of current user/schema.
+      -- Schema Objects:
+      p_include_object_ddl          => false, -- If true, include DDL of current user/schema and all its objects.
+      p_object_type_like            => null,  -- A comma separated list of like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type like '%BODY' escape '\' or object_type like 'JAVA%' escape '\').
+      p_object_type_not_like        => null,  -- A comma separated list of not like expressions to filter the objects - example: '%BODY,JAVA%' will be translated to: ... from user_objects where ... and (object_type not like '%BODY' escape '\' and object_type not like 'JAVA%' escape '\').
+      p_object_name_like            => null,  -- A comma separated list of like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name like 'EMP%' escape '\' or object_name like 'DEPT%' escape '\').
+      p_object_name_not_like        => null,  -- A comma separated list of not like expressions to filter the objects - example: 'EMP%,DEPT%' will be translated to: ... from user_objects where ... and (object_name not like 'EMP%' escape '\' and object_name not like 'DEPT%' escape '\').
+      p_object_view_remove_col_list => true,  -- If true, the outer column list, added by Oracle on views during compilation, is removed
+      -- Table Data:
+      p_include_data                => false, -- If true, include CSV data of each table.
+      p_data_as_of_minutes_ago      => 0,     -- Read consistent data with the resulting timestamp(SCN).
+      p_data_max_rows               => 1000,  -- Maximum number of rows per table.
+      p_data_table_name_like        => null,  -- A comma separated list of like expressions to filter the tables - example: 'EMP%,DEPT%' will be translated to: where ... and (table_name like 'EMP%' escape '\' or table_name like 'DEPT%' escape '\').
+      p_data_table_name_not_like    => null,  -- A comma separated list of not like expressions to filter the tables - example: 'EMP%,DEPT%' will be translated to: where ... and (table_name not like 'EMP%' escape '\' and table_name not like 'DEPT%' escape '\').
+      -- General Options:
+      p_include_templates           => true,  -- If true, include templates for README.md, export and install scripts.
+      p_include_runtime_log         => true,  -- If true, generate file plex_runtime_log.md with detailed runtime infos.
+      p_include_error_log           => true,  -- If true, generate file plex_error_log.md with detailed error messages.
+      p_base_path_backend           => 'app_backend',      -- The base path in the project root for the Schema objects.
+      p_base_path_frontend          => 'app_frontend',     -- The base path in the project root for the APEX app.
+      p_base_path_web_services      => 'app_web_services', -- The base path in the project root for the ORDS modules.
+      p_base_path_data              => 'app_data'));       -- The base path in the project root for the table data.
   END backapp;
 SELECT backapp FROM dual;
 ```
@@ -132,7 +138,7 @@ It is up to you how you organize the version control repository and how often yo
 
 Following the files first approach is sometimes not easy when you are using low code tools like [Quick SQL][quick_sql] and [Blueprint][blueprint] in APEX or code generators like [OraMUC's Table API Generator][om_tapigen]. There could be a need to regularly extract (maybe unknown) objects (not created by yourself) into version control to understand and document what you got from others (people or generators)...
 
-If the directory structure provided by PLEX does not match your needs - no problem - you can align it. Simply loop over the returned file collection and do your necessary work - here comes an example:
+If the directory structure provided by PLEX does not match your needs - no problem - you can align it. Simply loop over the returned file collection and do your necessary work - here an example:
 
 ```sql
 DECLARE
@@ -155,7 +161,7 @@ BEGIN
 END;
 ```
 
-For unloading the resulting file collection with SQL*Plus, please have a look in the `scripts/templates` folder of your export - there are examples to do this. See also my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL*Plus][prev_post].
+For unloading the resulting file collection with SQL\*Plus, please have a look in the `scripts/templates` folder of your export - there are examples to do this. See also my previous post on [how to handle the apex_t_export_files type returned by the APEX_EXPORT package with SQL\*Plus][prev_post].
 
 Some people prefer to devide their DDL scripts into the two categories __restartable__ (like packages) and __run once__ (like tables). Others like to have their scripts in a way that they are always restartable and the DDL script itself takes care about doing the work only once when needed. The advantage of the second way is that your backend install/deployment script is always the same and it simply calls all objects DDL scripts.
 

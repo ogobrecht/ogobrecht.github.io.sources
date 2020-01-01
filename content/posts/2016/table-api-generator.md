@@ -34,7 +34,7 @@ The generated API packages are really thin - nothing special at all. Nevertheles
 
 You can find the sources and more informations on [GitHub][2].
 
-Happy coding :-)  
+Happy coding :-)<br>
 Ottmar
 
 

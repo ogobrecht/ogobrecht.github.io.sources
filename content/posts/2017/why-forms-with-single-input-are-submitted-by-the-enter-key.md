@@ -22,7 +22,7 @@ I like the idea of one of the [Stack Overflow comments][1] to put anywhere into 
 
 It is worth to mention that I run the newest Chrome browser and this "feature" is still available...
 
-Happy coding :-)  
+Happy coding :-)<br>
 Ottmar
 
 [1]: https://stackoverflow.com/questions/1370021/why-does-forms-with-single-input-field-submit-upon-pressing-enter-key-in-input

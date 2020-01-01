@@ -22,7 +22,7 @@ My colleague Markus Dötsch was taking over the presentation and I concentrated 
 
 Yesterday I released version 1.0.0. You can start blogging for free in five minutes with this [quick start guide][6]. The [online demo][7] is serving as template, documentation and showcase. The mentioned slides from the [DOAG Conference][5] are included in this demo (in German, sorry...).
 
-Happy blogging :-)  
+Happy blogging :-)<br>
 Ottmar
 
 [1]: /posts/2017-03-05-dokuwiki-plugin-revealjs

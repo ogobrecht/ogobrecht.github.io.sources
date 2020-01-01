@@ -17,7 +17,7 @@ The nice side effect is, that I don't had to reinvent the wheel by creating an o
 
 You can find the sources and more informations on [GitHub][5] and a demo app on [apex.oracle.com][6].
 
-Happy coding :-)  
+Happy coding :-)<br>
 Ottmar
 
 [1]: https://stackexchange.github.io

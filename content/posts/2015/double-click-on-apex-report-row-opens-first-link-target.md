@@ -29,5 +29,5 @@ The dynamic action needs to execute JavaScript:
 $(this.triggeringElement).find('td:first>a')[0].click();
 ```
 
-Happy coding :-)  
+Happy coding :-)<br>
 Ottmar

@@ -239,3 +239,6 @@ Die skizzierte Diskussion um das Deployment lässt es schon erahnen: Einfach ein
   - [Tips to help PL/SQL developers get started with CI/CD](https://learncodeshare.net/2018/04/30/tips-to-help-pl-sql-developers-get-started-with-ci-cd/)
   - [CI/CD for Database Developers – Export Database Objects into Version Control](https://learncodeshare.net/2018/07/16/ci-cd-for-database-developers-export-database-objects-into-version-control/)
 - Jeff Smith: [19.X SQLcl Teaser: LIQUIBASE](https://www.thatjeffsmith.com/archive/2019/01/19-x-sqlcl-teaser-liquibase/)
+
+Happy version controlling :-)<br>
+Ottmar

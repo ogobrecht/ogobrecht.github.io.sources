@@ -12,7 +12,7 @@ We have to disable the swap space check in the installation file. I wrote anothe
 
 I came up with the idea to do simply all the steps in a Docker container under the same Linux (oraclelinux:7-slim) which is later on needed with the [official Oracle Docker file][5] for an XE instance. With this solution you are able to prepare the install file more or less automatically under every operating system, which can run Docker - also under Windows. For more Details see the [project on GitHub][6].
 
-Happy installing :-)  
+Happy installing :-)<br>
 Ottmar
 
 [1]: https://github.com/oracle/docker-images/issues/294#issuecomment-301465754

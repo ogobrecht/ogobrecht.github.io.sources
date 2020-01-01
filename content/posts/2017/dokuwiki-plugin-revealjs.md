@@ -12,7 +12,7 @@ For the APEX connect 2015 I started to use Markdown and [Pandoc][2] to create HT
 
 For the DOAG conference last year I tried to use Reveals.js as a DokuWiki Plugin - I wanted to have at the same time a normal wiki page and the possibility to render this page as a slideshow. Unfortunately the existing plugin was only a base implementation and many features from Reveal.js were not available. I decided to contribute to the existing plugin. The list of my improvements is long - I had fun and learned a lot. The plugin can be found [here on the DokuWiki homepage][4].
 
-Happy presenting :-)  
+Happy presenting :-)<br>
 Ottmar
 
 P.S.: In the meantime I switched complete to Markdown and [Jekyll][5], a static site generator - but this is another story for another post ...

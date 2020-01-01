@@ -28,7 +28,7 @@ The HTML and PDF output is complete vector based and all used tools are open sou
 
 You can find the sources and more informations on [GitHub][5].
 
-Happy reporting :-)  
+Happy reporting :-)<br>
 Ottmar
 
 [1]: /posts/2016-11-17-reporting-mal-anders-markdown-sei-dank
