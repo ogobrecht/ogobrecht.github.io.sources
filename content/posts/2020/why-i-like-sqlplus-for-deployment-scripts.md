@@ -5,6 +5,7 @@ tags: [oracle, script]
 lang: en
 publishdate: 2020-01-02
 lastmod: 2020-01-02 21:04:00
+aliases: [/posts/2020-01-02-why_i_like_sqlplus_for_deployment_scripts/]
 ---
 
 The following simplified example deployment masterscript is given:

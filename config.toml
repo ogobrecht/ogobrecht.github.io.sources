@@ -6,7 +6,7 @@ paginate = 100
 pygmentsCodefences = true
 pygmentsUseClasses = true
 enableRobotsTXT = true
-disableAliases = true
+disableAliases = false
 metaDataFormat = "yaml"
 publishDir = "../ogobrecht.github.io"
 

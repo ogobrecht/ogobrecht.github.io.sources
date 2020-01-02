@@ -5,6 +5,7 @@ tags: [oracle, apex, plsql, script, version-control]
 lang: en
 publishdate: 2020-01-01
 lastmod: 2020-01-01 20:16:00
+aliases: [/posts/2020-01-01-download_blobs_with_sqlplus/]
 ---
 
 Have you ever tried to spool/download BLOBS with SQL\*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands and finally spooling the CLOBs one by one by calling the intermediate SQL script. It was working, but far from elegant. Also, when I was in home office with a less powerful connection, it was slowing down the whole export process significantly.
