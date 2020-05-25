@@ -42,7 +42,7 @@ markup:
     ordered: false
     startLevel: 2
 params:
-  rssLimit: 100
+  rssLimit: 20
   description: Mainly about Oracle APEX and PL/SQL
   author:
     name: Ottmar Gobrecht

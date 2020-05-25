@@ -12,7 +12,7 @@
 <generator uri="https://gohugo.io/" version="{{ .Hugo.Version }}">Hugo</generator>
 <updated>{{ dateFormat "2006-01-02T15:04:05" now }}+01:00</updated>
 
-{{ range first .Site.Params.rssLimit (where .Data.Pages "Section" "in" (slice "posts") ) }}
+{{ range first .Site.Params.rssLimit (where .Site.RegularPages "Section" "in" (slice "posts") ) }}
 <entry xml:lang="{{ .Params.lang | default .Site.LanguageCode | default "en" }}">
 <id>{{ .Permalink | htmlEscape }}</id>
 <link href="{{ .Permalink }}" rel="alternate" type="text/html" title="{{ .Title | htmlEscape }}" />
