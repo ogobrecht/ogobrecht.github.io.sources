@@ -107,6 +107,10 @@ ORA-06512: at line 2
 
 If you are on Mac OS or Linux than you have to update to the latest SQLcl version 19.4 or use also the described workaround.
 
+## UPDATE July 20, 2020
+
+The Bug still exists in SQLcl 20.2 and SQL Developer 20.2 under Windows - we have to wait a bit longer...
+
 Again: happy scripting :-)<br>
 Ottmar
 
