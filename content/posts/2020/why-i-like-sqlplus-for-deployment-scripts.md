@@ -114,8 +114,6 @@ The Bug still exists in SQLcl 20.2 and SQL Developer 20.2 under Windows - we hav
 Again: happy scripting :-)<br>
 Ottmar
 
-
 [post]: /posts/2020-01-01-download_blobs_with_sqlplus
 [twitter]: https://twitter.com/ogobrecht/status/1212646721127366656
 [jeff]: https://twitter.com/thatjeffsmith/status/1213102639497515009
-

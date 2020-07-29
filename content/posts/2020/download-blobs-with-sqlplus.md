@@ -81,8 +81,6 @@ This function is included in the newest version of PLEX (named to_base64) - you 
 Happy scripting, exporting and version controlling :-)<br>
 Ottmar
 
-
-
 [download]: https://github.com/ogobrecht/plex/releases/latest
 [github]: https://github.com/ogobrecht/plex
 [oraclebase]: https://oracle-base.com/dba/script?category=miscellaneous&file=base64encode.sql

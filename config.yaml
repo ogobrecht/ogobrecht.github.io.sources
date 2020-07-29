@@ -7,7 +7,7 @@ pygmentsUseClasses: true
 enableRobotsTXT: true
 disableAliases: false
 metaDataFormat: yaml
-publishDir: ../ogobrecht.github.io
+publishDir: ../og-ogobrecht.github.io
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
@@ -88,6 +88,7 @@ params:
     sqlplus: SQL*Plus
     svg: SVG
     version-control: Version Control
+    wallet: Wallet
 permalinks:
   posts: '/:section/:year-:month-:day-:filename/'
 taxonomies:
