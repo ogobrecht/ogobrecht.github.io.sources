@@ -8,13 +8,13 @@ lastmod: 2020-01-01 20:16:00
 aliases: [/posts/2020-01-01-download_blobs_with_sqlplus/]
 ---
 
-Have you ever tried to spool/download BLOBS with SQL\*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands and finally spooling the CLOBs one by one by calling the intermediate SQL script. It was working, but far from elegant. Also, when I was in home office with a less powerful connection, it was slowing down the whole export process significantly.
+Have you ever tried to spool/download BLOBS with SQL\*Plus? Some months ago I tried to find a way to download a collection of CLOBs or even better a zipped version of the collection as BLOB. I learned that BLOBs are not a valid datatype in SQL*Plus when it comes to the spool command. I found a way by putting the CLOBs into a global temporary table, creating an intermediate SQL script with tons of select and spool commands, and finally spooling the CLOBs one by one by calling the intermediate SQL script. It was working, but far from elegant. Also, when I was in the home office with a less powerful connection, it was slowing down the whole export process significantly.
 
 If you are using PLEX (PL/SQL Export Utilities) and this sounds familiar to you - the described method was the default for exporting an APEX app or your schema DDL with the delivered export script templates.
 
-If you have no idea what I am talking about: PLEX is a PL/SQL package which is able to export an Oracle APEX app, ORDS modules, all schema objects and table data into a nice directory structure in one go ready to use for version control. Check out the [project on GitHub][github] and this [blog post on how to get started][post].
+If you have no idea what I am talking about: PLEX is a PL/SQL package that is able to export an Oracle APEX app, ORDS modules, all schema objects and table data into a nice directory structure in one go ready to use for version control. Check out the [project on GitHub][github] and this [blog post on how to get started][post].
 
-But there is a better way: Simply convert the BLOB into a base64 encoded CLOB. I have no idea why this was not my first solution for the PLEX export templates. In the new version 2.1.0 of PLEX the templates are using this approach. Here is a simplyfied example.
+But there is a better way: Simply convert the BLOB into a base64 encoded CLOB. I have no idea why this was not my first solution for the PLEX export templates. In the new version 2.1.0 of PLEX the templates are using this approach. Here is a simplified example.
 
 File export.sql:
 
