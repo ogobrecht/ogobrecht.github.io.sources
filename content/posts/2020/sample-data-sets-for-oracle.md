@@ -7,7 +7,7 @@ publishdate: 2020-05-25
 lastmod: 2020-05-25 14:00:00
 ---
 
-Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think the most of you immediately would say EMP, DEPT...
+Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think most of you immediately would say EMP, DEPT...
 
 Sure, but a bit more data would be nice. Ok, OE and HR schema...
 
@@ -17,11 +17,11 @@ Sure, but then I have to fiddle a bit with the scripts to make it run in my dev 
 
 Mmhhh, sounds this familiar to you? Maybe I can help...
 
-The sample data sets from Oracle were normally created for a dedicated schema. I changed that and omitted all the schema creation parts of the scripts. Instead all objects from a data set get a prefix - an example: All object from the customer orders schema (one of the newer data sets from Oracle) are prefixed with CO_. This allows me to use all data sets in parallel in a single schema and easily identify the data set the object belongs to.
+The sample data sets from Oracle were normally created for a dedicated schema. I changed that and omitted all the schema creation parts of the scripts. Instead, all objects from a data set get a prefix - an example: All objects from the customer orders schema (one of the newer data sets from Oracle) are prefixed with CO_. This allows me to use all data sets in parallel in a single schema and easily identify the data set the object belongs to.
 
 All table scripts are created with identity columns and the simplest possible options for easy readability - no fancy constraint and index names. Constraints and indexes will be renamed with global helper scripts after the table creation. Only real indexes are coded - foreign key indexes are generated with a global helper script too.
 
-For each data set you have always the same three scripts to handle the installation/data refresh/deinstallation.
+For each data set, you have always the same three scripts to handle the installation/data refresh/uninstallation.
 
 ## List of Data Sets, Copyrights
 
