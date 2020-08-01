@@ -37,7 +37,7 @@ print contents
 spool off 
 ```
 
-Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you are able to unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:
+Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you can unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:
 
 - Windows: `certutil -decode app_100.zip.base64 app_100.zip`
 - Mac: `base64 -D -i app_100.zip.base64 -o app_100.zip`
