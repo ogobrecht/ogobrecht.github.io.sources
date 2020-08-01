@@ -8,7 +8,7 @@ lastmod: 2020-01-03 19:40:00
 aliases: [/posts/2020-01-02-why_i_like_sqlplus_for_deployment_scripts/]
 ---
 
-The following simplified example deployment masterscript is given:
+The following simplified example deployment master script is given:
 
 ```sql
 set define off verify off feedback off
@@ -50,7 +50,7 @@ ORA-20000: Error test for SQL*Plus <> SQLcl comparison
 ORA-06512: at line 2 
 ```
 
-Ok, this error message is stupid, but usually I get some useful information here to fix my problem in the deployment script - especially when the problematic script is a bit longer...
+Ok, this error message is stupid, but usually, I get some useful information here to fix my problem in the deployment script - especially when the problematic script is a bit longer...
 
 When we call this in SQLcl (latest version 19.4 on Windows) we get the following output (in the console and also the deployment.log):
 
@@ -63,7 +63,7 @@ Step 2: Error test in anonymous block
 
 Mhhh... What was going on here? Why was my script terminating in step 2?
 
-That's one reason why I like SQL\*Plus a bit more than SQLcl for deployment scripts. The fast start time of SQL\*Plus is another reason. Nevertheless SQLcl is a cool command line tool.
+That's one reason why I like SQL\*Plus a bit more than SQLcl for deployment scripts. The fast start time of SQL\*Plus is another reason. Nevertheless, SQLcl is a cool command-line tool.
 
 Happy scripting :-)<br>
 Ottmar
@@ -105,11 +105,11 @@ ORA-06512: at line 2
            the application administrator or DBA for more information.
 ```
 
-If you are on Mac OS or Linux than you have to update to the latest SQLcl version 19.4 or use also the described workaround.
+If you are on Mac OS or Linux then you have to update to the latest SQLcl version 19.4 or use also the described workaround.
 
 ## UPDATE July 20, 2020
 
-The Bug still exists in SQLcl 20.2 and SQL Developer 20.2 under Windows - we have to wait a bit longer...
+The bug still exists in SQLcl 20.2 and SQL Developer 20.2 under Windows - we have to wait a bit longer...
 
 Again: happy scripting :-)<br>
 Ottmar
