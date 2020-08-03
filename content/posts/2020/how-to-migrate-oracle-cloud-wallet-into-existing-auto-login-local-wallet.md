@@ -1,10 +1,10 @@
 ---
 title: How to migrate Oracle Cloud wallet into existing auto_login_local wallet
-description: One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQl Developer
+description: One secure wallet for all your connections, no need to provide passwords in SQL*Plus, SQLcl and SQL Developer
 tags: [oracle, wallet, script]
 lang: en
 publishdate: 2020-08-03
-lastmod: 2020-08-03 10:40:00
+lastmod: 2020-08-03 11:20:00
 ---
 
 I started to store user credentials in wallet files for higher security in SQL scripts. If you do so you should also secure the access to your wallet files on the operating system level. This is especially true for auto-login wallets from the Oracle Cloud. To increase the security a bit further you can restrict the auto-login to the local user who created the wallet. To achieve this you need to create an own wallet with `orapki` instead of `mkstore`:
