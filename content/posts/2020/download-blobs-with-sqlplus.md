@@ -4,7 +4,7 @@ description: New version of PL/SQL Export Utilities available
 tags: [oracle, apex, plsql, script, sqlplus, version-control]
 lang: en
 publishdate: 2020-01-01
-lastmod: 2020-01-01 20:16:00
+lastmod: 2020-10-26 16:43:00
 aliases: [/posts/2020-01-01-download_blobs_with_sqlplus/]
 ---
 
@@ -35,7 +35,7 @@ END;
 set termout off
 spool "app_100.zip.base64"
 print contents
-spool off 
+spool off
 set termout on
 ```
 
