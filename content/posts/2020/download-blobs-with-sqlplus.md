@@ -19,7 +19,7 @@ But there is a better way: Simply convert the BLOB into a base64 encoded CLOB. I
 File export.sql:
 
 ```sql
-set verify off feedback off heading off termout off
+set verify off feedback off heading off
 set trimout on trimspool on pagesize 0 linesize 5000 long 100000000 longchunksize 32767
 whenever sqlerror exit sql.sqlcode rollback
 variable contents clob
@@ -32,9 +32,11 @@ BEGIN
     p_include_templates    => true)));
 END;
 /
+set termout off
 spool "app_100.zip.base64"
 print contents
 spool off 
+set termout on
 ```
 
 Congratulations - You are the owner of a base64 encoded CLOB on your client disk. And now? Before you can unzip the file you need to decode it - depending on your operating system you can do this with your OS tools:
