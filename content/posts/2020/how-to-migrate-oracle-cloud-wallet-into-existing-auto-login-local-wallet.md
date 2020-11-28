@@ -4,7 +4,7 @@ description: One secure wallet for all your connections, no need to provide pass
 tags: [oracle, wallet, script]
 lang: en
 publishdate: 2020-08-03
-lastmod: 2020-08-03 11:20:00
+lastmod: 2020-11-28 15:42:00
 ---
 
 I started to store user credentials in wallet files for higher security in SQL scripts. If you do so you should also secure the access to your wallet files on the operating system level. This is especially true for auto-login wallets from the Oracle Cloud. To increase the security a bit further you can restrict the auto-login to the local user who created the wallet. To achieve this you need to create an own wallet with `orapki` instead of `mkstore`:
@@ -91,6 +91,12 @@ I am now able to connect to my cloud database with the desired tools without pro
 - SQL*Plus (19.6): `sqlplus /@myAlias`
 - SQLcl (20.2): `sql /@myAlias`
 - SQL Developer (20.2): authentication type "OS", connection type "Custom JDBC" with URL `jdbc:oracle:thin:/@myAlias`
+
+If you forgot which aliases you have configured in your wallet:
+
+```cmd
+mkstore -wrl "path/to/my/wallet" -listCredential
+```
 
 Hope this helps someone else.
 
