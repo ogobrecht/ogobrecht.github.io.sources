@@ -39,6 +39,6 @@ Knappertsbuschstraße 19
 
 
 [gh]: https://github.com/ogobrecht/
-[ghp]: https://github.com/ogobrecht/ogobrecht.github.io
+[ghp]: https://github.com/ogobrecht/ogobrecht.github.io.sources
 [hugo]: https://gohugo.io/
 [pro]: /tags/project/
