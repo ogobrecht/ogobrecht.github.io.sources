@@ -5,6 +5,8 @@ tags: [oracle, apex, version-control, slides, doag]
 lang: de
 publishdate: 2019-03-11
 lastmod: 2019-03-16 13:06:00
+redirect: https://ogobrecht.com/posts/2019-03-11-doag-regionaltreffen-muenchen/
+layout: redirect
 ---
 
 Ich hatte die Ehre an einer gemeinsamen Veranstaltung der DOAG Regionalgruppe München und der Oracle APEX Meetup-Gruppe München einen Vortrag halten zu dürfen zu dem im Untertitel genannten Thema.

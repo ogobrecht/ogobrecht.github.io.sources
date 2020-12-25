@@ -5,6 +5,8 @@ tags: [apex, html]
 lang: en
 publishdate: 2017-09-26
 lastmod: 2017-10-01 20:00:00
+redirect: https://ogobrecht.com/posts/2017-09-26-why-forms-with-single-input-are-submitted-by-the-enter-key/
+layout: redirect
 ---
 Today I stumbled over this strange behaviour of an APEX page: The page was always submitted when I pressed the enter key in a search field to force an AJAX refresh on a report.
 

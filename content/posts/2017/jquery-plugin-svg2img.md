@@ -5,6 +5,8 @@ tags: [project, jquery, plugin, svg]
 lang: en
 publishdate: 2017-04-03
 lastmod: 2019-01-21 16:16:00
+redirect: https://ogobrecht.com/posts/2017-04-03-jquery-plugin-svg2img/
+layout: redirect
 ---
 
 SVG based charts and visualizations are often used these days. But what if you want to use your browser inline SVGs, generated with some sort of JavaScript and fancy styled with CSS, offline - maybe in a presentation, send by email or printed out large scaled?

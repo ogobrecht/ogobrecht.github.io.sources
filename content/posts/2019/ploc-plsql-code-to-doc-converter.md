@@ -5,6 +5,8 @@ tags: [project, oracle, plsql, generator, converter, docs, npm]
 lang: en
 publishdate: 2019-01-10
 lastmod: 2019-01-11 20:02:00
+redirect: https://ogobrecht.com/posts/2019-01-10-ploc-plsql-code-to-doc-converter/
+layout: redirect
 ---
 
 Some months ago I had to write a README file with Markdown syntax for a PL/SQL open source project. I changed function and procedure parameters of the package often during the implementation. Therefore, maintaining the documentation was no fun in the beginning. Maybe you know this from your own (payed) projects ;-)

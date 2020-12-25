@@ -5,6 +5,8 @@ tags: [project, oracle, script]
 lang: en
 publishdate: 2020-05-25
 lastmod: 2020-05-25 14:00:00
+redirect: https://ogobrecht.com/posts/2020-05-25-sample-data-sets-for-oracle/
+layout: redirect
 ---
 
 Sometimes you need only some small tables and some rows of data to play around with, to test things out. I think most of you immediately would say EMP, DEPT...

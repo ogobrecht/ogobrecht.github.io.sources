@@ -5,6 +5,8 @@ tags: [oracle, apex, plsql, version-control]
 lang: en
 publishdate: 2019-06-26
 lastmod: 2019-06-26 21:49:00
+redirect: https://ogobrecht.com/posts/2019-06-26-new-major-version-of-plex-available/
+layout: redirect
 ---
 
 PLEX is a PL/SQL package with export utilities - see [this post][plex] what it can do for you. In the past it was dependent on APEX for two reasons: The APEX_EXPORT package to allow exporting an APEX app and the APEX_ZIP package for compressing the resulting file collection to a zip file. 

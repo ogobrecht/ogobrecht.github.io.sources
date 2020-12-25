@@ -5,6 +5,8 @@ tags: [project, oracle, docker]
 lang: en
 publishdate: 2017-06-13
 lastmod: 2017-08-12 20:11:00
+redirect: https://ogobrecht.com/posts/2017-06-13-ora11xe-install-file-swap-check-disabler/
+layout: redirect
 ---
 Many people have problems to install Oracle 11XE in a Docker environment because the install file checks the available swap space in the container. In a container environment this fails often - see [here][1] or [here][2], because the swap space is optimized for the entire stack and not controlled from within the operating system of the container.
 

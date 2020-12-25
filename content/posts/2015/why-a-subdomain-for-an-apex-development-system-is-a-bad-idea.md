@@ -5,6 +5,8 @@ tags: [oracle, apex]
 lang: en
 publishdate: 2015-12-12
 lastmod: 2017-08-12 20:02:00
+redirect: https://ogobrecht.com/posts/2015-12-12-why-a-subdomain-for-an-apex-development-system-is-a-bad-idea/
+layout: redirect
 ---
 
 _Do you find dev.apex.mycompany.tld a nice, rememberable address? Unfortunately this will not work - at least when you use Internet Explorer (which is the standard browser in most companies) and you use the same cookie name in some or all applications to share the session across multiple applications._

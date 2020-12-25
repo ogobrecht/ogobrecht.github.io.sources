@@ -3,6 +3,8 @@ title: Imprint
 menu:
   legal:
     weight: 10
+redirect: https://ogobrecht.com/imprint/
+layout: redirect
 ---
 Legal information as required by german law:
 

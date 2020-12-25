@@ -5,6 +5,8 @@ tags: [oracle, apex, doag, slides, markdown, chart]
 lang: de
 publishdate: 2016-11-17
 lastmod: 2017-08-12 20:06:00
+redirect: https://ogobrecht.com/posts/2016-11-17-reporting-mal-anders-markdown-sei-dank/
+layout: redirect
 ---
 Die Folien zu meinem Vortrag:
 

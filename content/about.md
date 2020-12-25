@@ -3,6 +3,8 @@ title: About
 menu:
   main:
     weight: 60
+redirect: https://ogobrecht.com/about/
+layout: redirect
 ---
 
 ## Me

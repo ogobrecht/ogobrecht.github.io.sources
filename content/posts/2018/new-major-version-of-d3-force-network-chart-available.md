@@ -5,6 +5,8 @@ tags: [oracle, apex, plugin, d3js, chart, svg]
 lang: en
 publishdate: 2018-12-02
 lastmod: 2018-12-05 20:00:00
+redirect: https://ogobrecht.com/posts/2018-12-02-new-major-version-of-d3-force-network-chart-available/
+layout: redirect
 ---
 
 <div id="example"></div><!--the graph container-->

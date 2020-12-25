@@ -5,6 +5,8 @@ tags: [oracle, apex, version-control, slides, doag]
 lang: de
 publishdate: 2019-11-19
 lastmod: 2019-12-01 16:06:00
+redirect: https://ogobrecht.com/posts/2019-11-19-doag-konferenz/
+layout: redirect
 ---
 
 ![Mein DOAG Konferenz Vortrag](/slides/2019-11-19-schnellstart-versionskontrolle-fuer-existierende-projekte/assets/teaser.jpg)

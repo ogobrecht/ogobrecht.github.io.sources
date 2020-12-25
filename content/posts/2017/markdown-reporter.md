@@ -5,6 +5,8 @@ tags: [project, oracle, plsql, nodejs, pandoc, python, matplotlib]
 lang: en
 publishdate: 2017-01-23
 lastmod: 2017-08-12 20:10:00
+redirect: https://ogobrecht.com/posts/2017-01-23-markdown-reporter/
+layout: redirect
 ---
 On the APEX connect 2016 in Berlin I talked about my APEX Markdown plugin and fine art printing with the help of Pandoc and LaTeX. When I was preparing my slides and documenting a SQL query in a Markdown code block I asked myself:
 

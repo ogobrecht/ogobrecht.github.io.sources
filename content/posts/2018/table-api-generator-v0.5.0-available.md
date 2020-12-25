@@ -5,6 +5,8 @@ tags: [oracle, plsql, generator, oddgen]
 lang: en
 publishdate: 2018-12-26
 lastmod: 2018-12-26 20:00:00
+redirect: https://ogobrecht.com/posts/2018-12-26-table-api-generator-v0.5.0-available/
+layout: redirect
 ---
 
 Short before Christmas André and I released version 0.5.0 of our [PL/SQL table API generator][tapigen]. It took a long time to come to this point. One of the reasons behind was the fact that we had to rework some internals to support feature wishes from the community. Here the most important features of the new version:

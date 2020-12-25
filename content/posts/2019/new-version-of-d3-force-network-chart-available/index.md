@@ -5,6 +5,8 @@ tags: [oracle, apex, plugin, d3js, chart, svg]
 lang: en
 publishdate: 2019-06-09
 lastmod: 2019-06-09 16:00:00
+redirect: https://ogobrecht.com/posts/2019-06-09-new-version-of-d3-force-network-chart-available/
+layout: redirect
 ---
 
 ![Link label example](link-label.png)

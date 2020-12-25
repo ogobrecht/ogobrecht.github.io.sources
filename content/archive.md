@@ -4,6 +4,8 @@ description: A list of all available posts and tags
 menu:
   main:
     weight: 50
+redirect: https://ogobrecht.com/archive/
+layout: redirect
 ---
 
 ## Tags

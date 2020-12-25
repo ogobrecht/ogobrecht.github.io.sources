@@ -5,6 +5,8 @@ tags: [project, oracle, apex, plugin, d3js, chart, svg]
 lang: en
 publishdate: 2015-02-20
 lastmod: 2018-12-04 20:00:00
+redirect: https://ogobrecht.com/posts/2015-02-20-d3js-force-directed-network-chart/
+layout: redirect
 ---
 _My first Oracle APEX plugin and open source project :-)_
 

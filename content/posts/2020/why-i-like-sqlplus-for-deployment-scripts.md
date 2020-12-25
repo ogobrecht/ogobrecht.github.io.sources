@@ -6,6 +6,8 @@ lang: en
 publishdate: 2020-01-02
 lastmod: 2020-01-03 19:40:00
 aliases: [/posts/2020-01-02-why_i_like_sqlplus_for_deployment_scripts/]
+redirect: https://ogobrecht.com/posts/2020-01-02-why-i-like-sqlplus-for-deployment-scripts/
+layout: redirect
 ---
 
 The following simplified example deployment master script is given:

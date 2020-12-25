@@ -5,6 +5,8 @@ tags: [docker, oracle, mac]
 lang: en
 publishdate: 2017-03-21
 lastmod: 2017-08-12 20:12:00
+redirect: https://ogobrecht.com/posts/2017-03-21-pitfalls-with-oracle-11g-xe-and-docker-on-mac-os/
+layout: redirect
 ---
 
 Recently I tried to install Oracle XE into a docker container on Mac OS Sierra using the [official docker file][1] from Oracle. I had no luck, because the installation failed with this error message:

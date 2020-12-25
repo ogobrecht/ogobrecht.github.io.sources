@@ -5,6 +5,8 @@ tags: [oracle, apex]
 lang: en
 publishdate: 2015-01-14
 lastmod: 2017-08-24 20:00:00
+redirect: https://ogobrecht.com/posts/2015-01-14-double-click-on-apex-report-row-opens-first-link-target/
+layout: redirect
 ---
 
 _Do you like scanning a report for certain information and then moving the mouse to the first column to click the small link for details or a edit form? Would it be nice to double click anywhere on the row to open the first link?_

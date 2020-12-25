@@ -5,6 +5,8 @@ tags: [project, generator, html]
 lang: en
 publishdate: 2017-11-29
 lastmod: 2017-12-01 20:00:00
+redirect: https://ogobrecht.com/posts/2017-11-29-hydebar/
+layout: redirect
 ---
 Earlier this year I wrote at the end of [this post][1]:
 

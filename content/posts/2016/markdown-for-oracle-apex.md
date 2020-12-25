@@ -5,6 +5,8 @@ tags: [project, oracle, apex, plugin, markdown]
 lang: en
 publishdate: 2016-01-01
 lastmod: 2017-08-12 20:05:00
+redirect: https://ogobrecht.com/posts/2016-01-01-markdown-for-oracle-apex/
+layout: redirect
 ---
 
 Some years ago I implemented a task board in APEX. For commenting I used the [stackexchange][1] [markdown implementation][2] ([old Google code repo][3]), which is a pure JavaScript converter and editor and based on [showdown.js][4].

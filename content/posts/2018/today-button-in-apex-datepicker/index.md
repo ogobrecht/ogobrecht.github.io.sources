@@ -5,6 +5,8 @@ tags: [oracle, apex, jquery]
 lang: en
 publishdate: 2018-07-22
 lastmod: 2018-07-22 20:00:00
+redirect: https://ogobrecht.com/posts/2018-07-22-today-button-in-apex-datepicker/
+layout: redirect
 ---
 
 Maxime Tremblay has already described [here](http://max-tremblay.blogspot.com/2018/03/datepicker-customization.html) how to customize the datepicker.

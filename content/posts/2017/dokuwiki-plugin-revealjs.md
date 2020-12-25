@@ -5,6 +5,8 @@ tags: [project, dokuwiki, plugin, revealjs, php]
 lang: en
 publishdate: 2017-03-05
 lastmod: 2017-08-12 20:09:00
+redirect: https://ogobrecht.com/posts/2017-03-05-dokuwiki-plugin-revealjs/
+layout: redirect
 ---
 [DokuWiki][1] is very good for creating documentation in a team. It is PHP based, needs less resources and is running without a database only on files on nearly every webserver. If your infrastructure is crashed for whatever reason and you have at least access to the files (on the webserver or in a backup) you can read your documentation with a simple text editor, because DokuWiki's syntax is designed to be readable as possible without any rendering to HTML.
 

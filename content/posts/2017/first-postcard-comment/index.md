@@ -5,6 +5,8 @@ tags: [postcard, d3js]
 lang: en
 publishdate: 2017-12-27
 lastmod: 2017-12-27 20:00:00
+redirect: https://ogobrecht.com/posts/2017-12-27-first-postcard-comment/
+layout: redirect
 ---
 Maybe you already saw my footer and were wondering about the postcard comments. I love postcards and thought it would be nice to get postcards from people who enjoyed some of my posts or open source projects.
 

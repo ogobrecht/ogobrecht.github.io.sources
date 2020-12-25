@@ -5,6 +5,8 @@ tags: [oracle, apex, doag, d3js, svg]
 lang: de
 publishdate: 2015-03-01
 lastmod: 2019-08-15 21:00:00
+redirect: https://ogobrecht.com/posts/2015-03-01-d3js-grundlagen/
+layout: redirect
 ---
 
 {{< toc "Inhaltsverzeichnis" >}}

@@ -5,6 +5,8 @@ tags: [project, oracle, apex, plsql, version-control]
 lang: en
 publishdate: 2018-08-26
 lastmod: 2020-01-01 20:15:00
+redirect: https://ogobrecht.com/posts/2018-08-26-plex-plsql-export-utilities/
+layout: redirect
 ---
 
 > UPDATE 2019-06-26 regarding PLEX v2.0.0: PLEX can now be installed and used without an APEX installation. However, to export an APEX app you need APEX 5.1.4 or higher installed on your system. Without APEX your PLEX package has no options for an app export because of conditional compilation. You are still able to export your schema DDL and table data. Hope this helps some folks out there -- Ottmar

@@ -5,6 +5,8 @@ tags: [oracle, apex, version-control, sqlplus]
 lang: en
 publishdate: 2018-07-25
 lastmod: 2018-07-25 20:00:00
+redirect: https://ogobrecht.com/posts/2018-07-25-apex-export-and-version-control/
+layout: redirect
 ---
 
 Since years it has been possible to export an APEX app definition with the help of APEXExport, a Java utility delivered within the APEX install zip file. There is also the possibility to split the file into its components like pages, plugins and so on. There are some blog postings available how to do this - simply [ask Google][1]. Also the Java based SQLcl has the capability to do the export of an APEX app directly.

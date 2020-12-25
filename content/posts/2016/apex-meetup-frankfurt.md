@@ -5,6 +5,8 @@ tags: [oracle, apex, slides, markdown, generator]
 lang: de
 publishdate: 2016-06-17
 lastmod: 2017-08-12 20:04:00
+redirect: https://ogobrecht.com/posts/2016-06-17-apex-meetup-frankfurt/
+layout: redirect
 ---
 Heute bin ich früh morgens mit dem Zug nach Frankfurt gefahren. Ich bin von Moritz Klein und Sabine Heimsath eingeladen worden - das Motto: "Ein ganz generisches APEX Meetup". Passend zum Motto hatte ich einen Vortrag zum [Table API Generator][1] dabei, meinem neuesten Open Source Projekt zusammen mit André Borngräber. Daneben habe ich noch einmal meinen APEX connect Vortrag zum Thema [APEX Fine Art Printing, Markdown Überall][2] gezeigt.
 

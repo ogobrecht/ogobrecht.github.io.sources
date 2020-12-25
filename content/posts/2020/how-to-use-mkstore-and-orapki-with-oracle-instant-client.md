@@ -5,6 +5,8 @@ tags: [oracle, wallet, script]
 lang: en
 publishdate: 2020-07-29
 lastmod: 2020-07-29 20:15:00
+redirect: https://ogobrecht.com/posts/2020-07-29-how-to-use-mkstore-and-orapki-with-oracle-instant-client/
+layout: redirect
 ---
 
 For some years I use only the [Oracle Instant Client](https://www.oracle.com/database/technologies/instant-client.html). I had too often trouble with the full client installation on my corporate PCs under Windows, especially in the old Windows 32/64 bit times. The instant client can be used by download and extract one basic zip file and adding an entry to your path environment variable. If you want to use SQL*Plus and other tools you need to download two additional files - no drama, also without admin rights.

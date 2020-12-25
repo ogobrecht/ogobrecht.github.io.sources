@@ -5,6 +5,8 @@ tags: [project, oracle, apex, plugin, chart]
 lang: en
 publishdate: 2017-03-14
 lastmod: 2017-08-12 20:08:00
+redirect: https://ogobrecht.com/posts/2017-03-14-apex-plugin-dhtmlx-gantt/
+layout: redirect
 ---
 
 ![Preview](https://raw.githubusercontent.com/ogobrecht/apex-plugin-dhtmlx-gantt/master/preview.png)
